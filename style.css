@@ -1,0 +1,921 @@
+/* ==========================================================
+   PALETA Y VARIABLES KUROMI ESTÉTICA (DARK / LAVENDER / PINK)
+========================================================== */
+:root {
+    --kuromi-black: #17121e;
+    --kuromi-dark-purple: #23192f;
+    --kuromi-purple: #8b5cf6;
+    --kuromi-lavender: #d8b4fe;
+    --kuromi-light-lavender: #f3e8ff;
+    --kuromi-pink: #ff4da6;
+    --kuromi-soft-pink: #ffb3da;
+    --kuromi-white: #fcf8ff;
+    --kuromi-gray: #342a42;
+    --text-dark: #1f162b;
+    --text-light: #f5edff;
+    --shadow-kuromi: 0 15px 35px rgba(23, 18, 30, 0.45);
+    --glow-pink: 0 0 15px rgba(255, 77, 166, 0.5);
+    --glow-purple: 0 0 15px rgba(139, 92, 246, 0.5);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    color: var(--text-dark);
+    background: var(--kuromi-black);
+    overflow-x: hidden;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+/* ==========================================================
+   PANTALLA DE BIENVENIDA / SOBRE DE KUROMI
+========================================================== */
+.welcome-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: 24px;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(255, 77, 166, 0.25), transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.3), transparent 40%),
+        linear-gradient(135deg, #17121e, #2a1f38);
+    transition: opacity 0.9s ease, visibility 0.9s ease;
+}
+
+.welcome-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.envelope-area {
+    width: min(94vw, 620px);
+    text-align: center;
+}
+
+.welcome-small {
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+    color: var(--kuromi-pink);
+    font-weight: 700;
+}
+
+.guest-name {
+    margin-bottom: 30px;
+    font-family: "Fredoka", sans-serif;
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    color: var(--kuromi-lavender);
+    text-shadow: var(--glow-purple);
+}
+
+.touch-text {
+    display: block;
+    margin-bottom: 15px;
+    color: var(--kuromi-soft-pink);
+    font-size: 0.85rem;
+    letter-spacing: 0.1rem;
+}
+
+.envelope-wrapper {
+    position: relative;
+    width: min(86vw, 430px);
+    height: 300px;
+    margin: auto;
+    perspective: 1200px;
+    cursor: pointer;
+}
+
+.envelope {
+    position: absolute;
+    inset: auto 0 0;
+    height: 245px;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: #2d223c;
+    border: 2px solid var(--kuromi-pink);
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 7;
+    width: 100%;
+    height: 58%;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    background: linear-gradient(145deg, #382a4a, #23192f);
+    transform-origin: top;
+    transition: transform 0.9s ease;
+    border-top: 2px solid var(--kuromi-pink);
+}
+
+.envelope-front-left,
+.envelope-front-right,
+.envelope-front-bottom {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+}
+
+.envelope-front-left {
+    clip-path: polygon(0 0, 52% 53%, 0 100%);
+    background: #251b30;
+}
+
+.envelope-front-right {
+    clip-path: polygon(100% 0, 48% 53%, 100% 100%);
+    background: #20172a;
+}
+
+.envelope-front-bottom {
+    clip-path: polygon(0 100%, 50% 42%, 100% 100%);
+    background: linear-gradient(145deg, #2a1e38, #1c1426);
+}
+
+.letter {
+    position: absolute;
+    left: 7%;
+    bottom: 0px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 86%;
+    height: 210px;
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--kuromi-white);
+    border: 2px dashed var(--kuromi-purple);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    transition: transform 1s ease 0.35s, z-index 0s 0.55s;
+}
+
+.letter p {
+    font-size: 0.85rem;
+    letter-spacing: 0.12rem;
+    text-transform: uppercase;
+    color: var(--kuromi-black);
+    margin-top: 5px;
+}
+
+.letter strong {
+    font-family: "Fredoka", cursive;
+    font-size: 1.8rem;
+    color: var(--kuromi-pink);
+}
+
+.flower-icon {
+    font-size: 2rem;
+}
+
+.seal {
+    position: absolute;
+    top: 95px;
+    left: 50%;
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    width: 62px;
+    height: 62px;
+    border: 2px solid var(--kuromi-white);
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--kuromi-pink), #cc0066);
+    color: white;
+    box-shadow: var(--glow-pink);
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.envelope-wrapper.open .flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope-wrapper.open .letter {
+    z-index: 9;
+    transform: translateY(-160px) scale(1.04);
+}
+
+.envelope-wrapper.open .seal {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.4);
+}
+
+/* ==========================================================
+   PORTADA Y CONTENIDO
+========================================================== */
+.invitation-content {
+    opacity: 0;
+    transition: opacity 1s ease;
+    background: var(--kuromi-black);
+}
+
+.invitation-content.visible {
+    opacity: 1;
+}
+
+.hero {
+    position: relative;
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    padding: 80px 24px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #120e17 0%, #251a33 100%);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 30%, rgba(255, 77, 166, 0.15), transparent 60%),
+        radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.2), transparent 50%);
+}
+
+.hero-kuromi {
+    position: absolute;
+    top: 40px;
+    z-index: 3;
+    width: 90px;
+    height: 90px;
+    filter: drop-shadow(0 0 10px rgba(255, 77, 166, 0.6));
+    animation: floatKuromi 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatKuromi {
+    from { transform: translateY(0) rotate(-4deg); }
+    to { transform: translateY(-12px) rotate(4deg); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(900px, 100%);
+    text-align: center;
+    color: var(--kuromi-white);
+    margin-top: 40px;
+}
+
+.eyebrow,
+.section-label {
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: var(--kuromi-pink);
+}
+
+.hero-content h2 {
+    font-family: "Fredoka", sans-serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    color: var(--kuromi-lavender);
+    text-shadow: var(--glow-purple);
+}
+
+/* Nombre principal en estilo cursivo elegante de graduación */
+.graduate-name {
+    font-family: "Parisienne", cursive !important;
+    font-size: clamp(3.2rem, 10vw, 6.5rem);
+    font-weight: 400 !important;
+    color: var(--kuromi-white);
+    text-shadow: 0 0 15px rgba(255, 77, 166, 0.6);
+    line-height: 1.1;
+    margin: 15px 0;
+}
+
+.gold-line {
+    width: clamp(140px, 40vw, 260px);
+    height: 3px;
+    margin: 20px auto;
+    background: linear-gradient(to right, transparent, var(--kuromi-pink), var(--kuromi-purple), transparent);
+}
+
+.career {
+    max-width: 620px;
+    margin: 18px auto;
+    font-size: clamp(1rem, 2.6vw, 1.25rem);
+    color: var(--kuromi-light-lavender);
+}
+
+.hero-date {
+    margin-top: 18px;
+    font-family: "Fredoka", sans-serif;
+    font-size: 1.6rem;
+    color: var(--kuromi-pink);
+}
+
+.music-button {
+    margin-top: 25px;
+    padding: 12px 26px;
+    border: 2px solid var(--kuromi-pink);
+    border-radius: 999px;
+    background: rgba(35, 25, 47, 0.8);
+    color: var(--kuromi-white);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    box-shadow: var(--glow-pink);
+    transition: all 0.3s ease;
+}
+
+.music-button:hover {
+    background: var(--kuromi-pink);
+    color: white;
+    transform: scale(1.05);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    z-index: 3;
+    width: 28px;
+    height: 45px;
+    border: 2px solid var(--kuromi-lavender);
+    border-radius: 20px;
+    transform: translateX(-50%);
+}
+
+.scroll-indicator span {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--kuromi-pink);
+    transform: translateX(-50%);
+    animation: scrollDown 1.8s infinite;
+}
+
+@keyframes scrollDown {
+    0% { opacity: 0; transform: translate(-50%, 0); }
+    40% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-50%, 20px); }
+}
+
+/* ==========================================================
+   SECCIONES Y TARJETAS
+========================================================== */
+.section {
+    position: relative;
+    padding: 90px 20px;
+    background: var(--kuromi-black);
+}
+
+.section-card,
+.rsvp-card {
+    width: min(820px, 100%);
+    margin: auto;
+    padding: clamp(35px, 6vw, 65px);
+    border: 2px solid var(--kuromi-purple);
+    border-radius: 28px;
+    background: rgba(35, 25, 47, 0.95);
+    box-shadow: var(--shadow-kuromi), inset 0 0 15px rgba(216, 180, 254, 0.1);
+    text-align: center;
+    color: var(--kuromi-white);
+}
+
+.section-card h2,
+.section-heading h2,
+.rsvp-card h2 {
+    margin-bottom: 20px;
+    font-family: "Fredoka", sans-serif;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    color: var(--kuromi-lavender);
+}
+
+.section-card p,
+.rsvp-card p {
+    margin: 12px auto;
+    max-width: 660px;
+    line-height: 1.8;
+    color: var(--kuromi-light-lavender);
+    font-size: 1.05rem;
+}
+
+.section-flower {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+}
+
+.highlight-text {
+    color: var(--kuromi-pink) !important;
+    font-family: "Fredoka", sans-serif;
+    font-size: 1.3rem !important;
+    margin-top: 20px !important;
+}
+
+/* ==========================================================
+   CONTADOR
+========================================================== */
+.countdown-section {
+    text-align: center;
+    background: linear-gradient(135deg, #1f132b, #2d163d);
+    border-top: 2px solid var(--kuromi-purple);
+    border-bottom: 2px solid var(--kuromi-purple);
+}
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(70px, 130px));
+    justify-content: center;
+    gap: 16px;
+    margin-top: 35px;
+}
+
+.time-box {
+    padding: 22px 10px;
+    border: 2px solid var(--kuromi-pink);
+    border-radius: 20px;
+    background: rgba(23, 18, 30, 0.7);
+    box-shadow: var(--glow-pink);
+}
+
+.time-box span {
+    display: block;
+    font-family: "Fredoka", sans-serif;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    color: var(--kuromi-white);
+}
+
+.time-box small {
+    text-transform: uppercase;
+    letter-spacing: 0.08rem;
+    color: var(--kuromi-lavender);
+    font-weight: 600;
+}
+
+.countdown-message {
+    margin-top: 25px;
+    color: var(--kuromi-pink);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.countdown-section .script-heading {
+    color: #ff79c6;
+}
+
+/* ==========================================================
+   EVENTOS & RECEPTIONS
+========================================================== */
+.event-section {
+    background: var(--kuromi-black);
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: min(700px, 100%);
+    margin: auto;
+}
+
+.event-card {
+    padding: 45px 30px;
+    border-radius: 26px;
+    background: #23192f;
+    border: 2px solid var(--kuromi-pink);
+    box-shadow: var(--shadow-kuromi);
+    text-align: center;
+    color: var(--kuromi-white);
+}
+
+.event-icon {
+    font-size: 2.8rem;
+}
+
+.event-card h3 {
+    margin: 15px 0;
+    font-family: "Fredoka", sans-serif;
+    font-size: 2.5rem;
+    color: var(--kuromi-lavender);
+}
+
+.event-date {
+    font-weight: 700;
+    color: var(--kuromi-pink);
+    font-size: 1.2rem;
+}
+
+.primary-button {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(145deg, var(--kuromi-pink), #d6006e);
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: var(--glow-pink);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.primary-button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(255, 77, 166, 0.7);
+}
+
+/* ==========================================================
+   ITINERARIO (TIMELINE)
+========================================================== */
+.timeline-section {
+    background: linear-gradient(180deg, var(--kuromi-black), #1f162b);
+}
+
+.timeline {
+    position: relative;
+    width: min(820px, 100%);
+    margin: auto;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 120px;
+    width: 3px;
+    background: linear-gradient(180deg, var(--kuromi-pink), var(--kuromi-purple));
+}
+
+.timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 95px 1fr;
+    gap: 50px;
+    margin-bottom: 40px;
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 10px;
+    left: 111px;
+    width: 20px;
+    height: 20px;
+    border: 4px solid var(--kuromi-black);
+    border-radius: 50%;
+    background: var(--kuromi-pink);
+    box-shadow: var(--glow-pink);
+}
+
+.timeline-time {
+    font-weight: 700;
+    text-align: right;
+    color: var(--kuromi-lavender);
+    padding-top: 8px;
+}
+
+.timeline-content {
+    padding: 25px;
+    border-radius: 20px;
+    background: #251b33;
+    border: 1px solid var(--kuromi-purple);
+    box-shadow: var(--shadow-kuromi);
+    color: var(--kuromi-white);
+}
+
+.timeline-content h3 {
+    margin-bottom: 8px;
+    font-family: "Fredoka", sans-serif;
+    font-size: 1.7rem;
+    color: var(--kuromi-pink);
+}
+
+/* ==========================================================
+   GALERÍA
+========================================================== */
+.gallery-section {
+    background: var(--kuromi-black);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 260px;
+    gap: 18px;
+    width: min(1100px, 100%);
+    margin: auto;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 20px;
+    border: 2px solid var(--kuromi-purple);
+    box-shadow: var(--shadow-kuromi);
+    position: relative;
+}
+
+.gallery-item img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-item.tall { grid-row: span 2; }
+.gallery-item.wide { grid-column: span 2; }
+
+/* ==========================================================
+   PIE DE PÁGINA
+========================================================== */
+.footer {
+    padding: 80px 22px;
+    background: linear-gradient(180deg, #1f162b, #100b17);
+    color: var(--kuromi-white);
+    text-align: center;
+    border-top: 2px solid var(--kuromi-pink);
+}
+
+.footer-flower {
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.footer h2 {
+    font-family: "Fredoka", sans-serif;
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    color: var(--kuromi-lavender);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer p {
+    margin: 18px 0 8px;
+    color: var(--kuromi-pink);
+    font-weight: 600;
+}
+
+/* ==========================================================
+   EFECTO REVEAL Y ELEMENTOS CAYENDO (PETALS)
+========================================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.petal {
+    position: fixed;
+    top: -10vh;
+    z-index: 1;
+    pointer-events: none;
+    font-size: 22px;
+    animation: fall linear forwards;
+}
+
+.petal::before {
+    content: attr(data-char);
+    display: block;
+    text-shadow: 0 0 8px rgba(255, 77, 166, 0.8);
+}
+
+@keyframes fall {
+    to {
+        transform: translate3d(var(--drift), 115vh, 0) rotate(360deg);
+        opacity: 0.1;
+    }
+}
+
+/* ==========================================================
+   AJUSTES RESPONSIVOS
+========================================================== */
+@media (max-width: 768px) {
+    .envelope-wrapper {
+        width: min(92vw, 380px);
+        height: 270px;
+    }
+
+    .envelope {
+        height: 215px;
+    }
+
+    .letter {
+        left: 6%;
+        width: 88%;
+        height: 185px;
+    }
+
+    .seal {
+        top: 85px;
+    }
+
+    .countdown {
+        grid-template-columns: repeat(2, minmax(110px, 1fr));
+    }
+
+    .timeline::before {
+        left: 18px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding-left: 45px;
+    }
+
+    .timeline-dot {
+        left: 9px;
+    }
+
+    .timeline-time {
+        text-align: left;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 200px;
+    }
+
+    .gallery-item.tall { grid-row: span 1; }
+    .gallery-item.wide { grid-column: span 2; }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 60px 15px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 250px;
+    }
+
+    .gallery-item.wide { grid-column: span 1; }
+}
+
+.section-flower-img, .event-icon-img 
+ {
+    width: 80px;         /* Ajusta el ancho según prefieras */
+    height: 80px;        /* Ajusta la altura */
+    object-fit: contain; /* Evita que la imagen se deforme */
+    display: inline-block;
+    vertical-align: middle;
+}
+/* Contenedor que junta la imagen y las cajas del contador */
+.countdown-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px auto;
+}
+
+/* Control de la imagen al lado del contador */
+.countdown-side-img {
+    width: 130px;          /* Ajusta según el tamaño que prefieras */
+    height: auto;
+    object-fit: contain;
+}
+
+/* Responsivo para pantallas pequeñas / celulares */
+@media (max-width: 480px) {
+    .countdown-wrapper {
+        flex-direction: column; /* Pasa la imagen arriba del contador si el celular es muy angosto */
+        gap: 10px;
+    }
+    
+    .countdown-side-img {
+        width: 70px;
+    }
+}
+/* Contenedor que junta el texto y la imagen */
+.footer-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 600px;
+    margin: 20px auto 0;
+}
+
+.footer-text {
+    text-align: center;
+}
+
+/* Imagen del lado derecho */
+.footer-side-img {
+    width: 300px;          /* Ajusta el tamaño según prefieras */
+    height: auto;
+    object-fit: contain;
+}
+
+/* Adaptación para pantallas pequeñas (celulares) */
+@media (max-width: 480px) {
+    .footer-wrapper {
+        flex-direction: column; /* Apila el texto y la imagen verticalmente en pantallas muy estrechas */
+        gap: 15px;
+    }
+    
+    .footer-side-img {
+        width: 75px;
+    }
+}
+/* ==========================================
+   CARRUSEL SWIPER - ESPACIO COMPACTO
+   ========================================== */
+
+.gallery-swiper {
+    width: 100%;
+    padding-top: 35px;
+    padding-bottom: 15px;
+    overflow: visible;
+}
+
+.gallery-swiper .swiper-wrapper {
+    align-items: center;
+}
+
+.gallery-swiper .swiper-slide {
+    width: 260px;
+    height: 360px;
+    border-radius: 16px;
+    overflow: hidden;
+
+    transition:
+        transform 1.2s ease,
+        filter 1.2s ease,
+        opacity 1.2s ease;
+
+    filter: brightness(0.5);
+    opacity: 0.7;
+}
+
+.gallery-swiper .swiper-slide-active {
+    transform: scale(1.12) !important;
+    filter: brightness(1) !important;
+    opacity: 1 !important;
+    z-index: 10 !important;
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.45),
+        0 0 25px rgba(255, 77, 166, 0.18);
+}
+
+.gallery-swiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+/* Paginación más cercana al carrusel */
+.gallery-swiper .swiper-pagination {
+    bottom: 0;
+}
+@media (max-width: 480px) {
+
+    .gallery-swiper {
+        padding-top: 25px;
+        padding-bottom: 5px;
+    }
+
+    .gallery-swiper .swiper-slide {
+        width: 220px;
+        height: 310px;
+    }
+
+    .gallery-swiper .swiper-slide-active {
+        transform: scale(1.08) !important;
+    }
+}
