@@ -15,6 +15,8 @@
     --text-dark: #1f162b;
     --text-light: #f5edff;
 
+    --space-md: 60px;
+
     --shadow-kuromi:
         0 15px 35px rgba(23, 18, 30, 0.45);
 
@@ -1330,475 +1332,44 @@ img {
 
 
 /* ==========================================================
-   CARRUSEL SWIPER
-   ESTILO XV
-   PC: 3 A CADA LADO + 1 CENTRAL
-   CELULAR: 1 CENTRAL
+   CARRUSEL XV
+   Formato de posiciones fluidas (pos0-pos5)
 ========================================================== */
 
-.gallery-section {
-    position: relative;
-
+.carousel-xv {
     width: 100%;
-    max-width: 100%;
-
-    padding: 70px 0;
-
-    background:
-        var(--kuromi-black);
-
-    /*
-       Este es el único elemento que recorta
-       el carrusel para evitar scroll horizontal.
-    */
+    padding: var(--space-md) 0;
     overflow: hidden;
+    background: var(--kuromi-black);
 }
 
-
-/* CONTENEDOR SWIPER */
-
-.gallery-swiper {
+.carousel-track {
     position: relative;
-
-    display: block;
-
     width: 100%;
-    max-width: 100%;
-
-    margin: 0 auto;
-
-    padding-top: 35px;
-    padding-bottom: 35px;
-
-    /*
-       NO poner hidden aquí.
-       Swiper necesita espacio para moverse.
-    */
-    overflow: visible !important;
-}
-
-
-/* WRAPPER */
-
-.gallery-swiper .swiper-wrapper {
+    height: clamp(240px, 50vw, 380px);
     display: flex;
-
+    justify-content: center;
     align-items: center;
-
-    width: 100%;
-
-    box-sizing: border-box;
 }
 
-
-/* ==========================================================
-   DIAPOSITIVAS
-========================================================== */
-
-.gallery-swiper .swiper-slide {
-
-    /*
-       Este ancho se usa como base.
-       Swiper puede modificarlo mediante JS.
-    */
-    width: 250px;
-
-    height: 350px;
-
-    flex-shrink: 0;
-
-    position: relative;
-
-    overflow: hidden;
-
-    border-radius: 20px;
-
-    box-sizing: border-box;
-
-    background:
-        var(--kuromi-dark-purple);
-
-    border:
-        2px solid
-        rgba(216, 180, 254, 0.25);
-
-    opacity: 0.45;
-
-    filter:
-        brightness(0.45);
-
-    transform:
-        scale(0.78);
-
-    transition:
-        transform 0.6s ease,
-        opacity 0.6s ease,
-        filter 0.6s ease,
-        box-shadow 0.6s ease;
-
-    box-shadow:
-        0 10px 30px
-        rgba(0, 0, 0, 0.35);
-}
-
-
-/* IMAGEN */
-
-.gallery-swiper .swiper-slide img {
-
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
+.carousel-img {
+    position: absolute;
+    width:  clamp(100px, 22vw, 190px);
+    height: clamp(160px, 34vw, 290px);
     object-fit: cover;
-
-    border-radius: 18px;
+    border-radius: clamp(12px, 3vw, 22px);
+    transition: all 0.8s ease;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.45);
+    opacity: 0;
 }
 
-
-/* ==========================================================
-   IMAGEN CENTRAL
-========================================================== */
-
-.gallery-swiper
-.swiper-slide-active {
-
-    opacity: 1 !important;
-
-    filter:
-        brightness(1) !important;
-
-    transform:
-        scale(1) !important;
-
-    z-index: 20 !important;
-
-    border-color:
-        var(--kuromi-pink);
-
-    box-shadow:
-
-        0 20px 45px
-        rgba(0, 0, 0, 0.55),
-
-        0 0 30px
-        rgba(255, 77, 166, 0.45);
-}
-
-
-/* ==========================================================
-   IMÁGENES CERCANAS
-========================================================== */
-
-.gallery-swiper
-.swiper-slide-prev,
-
-.gallery-swiper
-.swiper-slide-next {
-
-    opacity: 0.8;
-
-    filter:
-        brightness(0.72);
-
-    transform:
-        scale(0.86);
-
-    z-index: 10;
-}
-
-
-/* ==========================================================
-   PAGINACIÓN
-========================================================== */
-
-.gallery-swiper
-.swiper-pagination {
-
-    position: relative;
-
-    left: auto;
-    right: auto;
-    bottom: auto;
-
-    display: block;
-
-    width: 100%;
-
-    margin-top: 25px;
-
-    text-align: center;
-}
-
-
-.gallery-swiper
-.swiper-pagination-bullet {
-
-    width: 10px;
-    height: 10px;
-
-    margin:
-        0 5px !important;
-
-    background:
-        var(--kuromi-lavender);
-
-    opacity: 0.6;
-
-    transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
-}
-
-
-.gallery-swiper
-.swiper-pagination-bullet-active {
-
-    background:
-        var(--kuromi-pink);
-
-    opacity: 1;
-
-    transform:
-        scale(1.25);
-}
-
-
-/* ==========================================================
-   TABLETS
-========================================================== */
-
-@media (max-width: 900px) {
-
-    .gallery-section {
-
-        padding:
-            65px 0;
-    }
-
-
-    .gallery-swiper {
-
-        width: 100%;
-
-        padding-top: 30px;
-        padding-bottom: 30px;
-
-        overflow: visible !important;
-    }
-
-
-    .gallery-swiper .swiper-slide {
-
-        width: 210px;
-
-        height: 310px;
-    }
-}
-
-
-/* ==========================================================
-   CELULARES
-========================================================== */
-
-@media (max-width: 600px) {
-
-    .gallery-section {
-
-        width: 100%;
-
-        max-width: 100%;
-
-        padding:
-            65px 0;
-
-        /*
-           Recorta solamente el exterior.
-        */
-        overflow: hidden;
-    }
-
-
-    .gallery-swiper {
-
-        width: 100%;
-
-        max-width: 100%;
-
-        margin: 0 auto;
-
-        padding-top: 25px;
-        padding-bottom: 25px;
-
-        /*
-           IMPORTANTE
-        */
-        overflow: visible !important;
-    }
-
-
-    .gallery-swiper .swiper-wrapper {
-
-        align-items: center;
-    }
-
-
-    /*
-       EN CELULAR UNA SOLA IMAGEN CENTRAL.
-    */
-
-    .gallery-swiper .swiper-slide {
-
-        width: 235px !important;
-
-        height: 325px;
-
-        flex-shrink: 0;
-
-        border-radius: 20px;
-
-        transform:
-            scale(0.82);
-
-        opacity: 0.4;
-
-        filter:
-            brightness(0.5);
-    }
-
-
-    /* FOTO CENTRAL */
-
-    .gallery-swiper
-    .swiper-slide-active {
-
-        width: 235px !important;
-
-        height: 325px;
-
-        transform:
-            scale(1) !important;
-
-        opacity: 1 !important;
-
-        filter:
-            brightness(1) !important;
-
-        z-index: 20 !important;
-
-        border-color:
-            var(--kuromi-pink);
-
-        box-shadow:
-
-            0 18px 40px
-            rgba(0, 0, 0, 0.5),
-
-            0 0 25px
-            rgba(255, 77, 166, 0.35);
-    }
-
-
-    /* FOTOS A LOS LADOS */
-
-    .gallery-swiper
-    .swiper-slide-prev,
-
-    .gallery-swiper
-    .swiper-slide-next {
-
-        transform:
-            scale(0.75);
-
-        opacity: 0.45;
-
-        filter:
-            brightness(0.5);
-    }
-
-
-    /* IMÁGENES */
-
-    .gallery-swiper
-    .swiper-slide img {
-
-        width: 100%;
-        height: 100%;
-
-        object-fit: cover;
-
-        border-radius: 18px;
-    }
-
-
-    /* PUNTOS */
-
-    .gallery-swiper
-    .swiper-pagination {
-
-        position: relative;
-
-        width: 100%;
-
-        margin-top: 22px;
-
-        text-align: center;
-    }
-
-
-    .gallery-swiper
-    .swiper-pagination-bullet {
-
-        width: 9px;
-        height: 9px;
-
-        margin:
-            0 4px !important;
-
-        background:
-            var(--kuromi-lavender);
-
-        opacity: 0.6;
-    }
-
-
-    .gallery-swiper
-    .swiper-pagination-bullet-active {
-
-        background:
-            var(--kuromi-pink);
-
-        opacity: 1;
-
-        transform:
-            scale(1.2);
-    }
-}
-
-
-/* ==========================================================
-   CELULARES PEQUEÑOS
-========================================================== */
-
-@media (max-width: 380px) {
-
-    .gallery-swiper .swiper-slide {
-
-        width: 215px !important;
-
-        height: 305px;
-    }
-
-
-    .gallery-swiper
-    .swiper-slide-active {
-
-        width: 215px !important;
-
-        height: 305px;
-    }
-}
+/* Posiciones fluidas usando clamp */
+.carousel-img.pos0 { transform: translateX(clamp(-220px,-42vw,-430px)) scale(0.72); opacity: 0.45; z-index: 1; }
+.carousel-img.pos1 { transform: translateX(clamp(-140px,-26vw,-270px)) scale(0.85); opacity: 0.7;  z-index: 2; }
+.carousel-img.pos2 { transform: translateX(clamp(-55px, -10vw,-110px)) scale(1);    opacity: 0.9;  z-index: 3; }
+.carousel-img.pos3 { transform: translateX(clamp( 45px,   9vw,  90px)) scale(1.15); opacity: 1;    z-index: 4; }
+.carousel-img.pos4 { transform: translateX(clamp(140px,  26vw, 270px)) scale(0.85); opacity: 0.7;  z-index: 2; }
+.carousel-img.pos5 { transform: translateX(clamp(220px,  42vw, 430px)) scale(0.72); opacity: 0.45; z-index: 1; }
 
 
 /* ==========================================================
@@ -2771,175 +2342,10 @@ img {
        CARRUSEL
     ====================================================== */
 
-    .gallery-section {
-
-        width:
-            100%;
-
-        max-width:
-            100%;
+    .carousel-xv {
 
         padding:
-            65px 0;
-
-        overflow:
-            hidden !important;
-    }
-
-
-    .gallery-swiper {
-
-        width:
-            100%;
-
-        max-width:
-            100%;
-
-        padding:
-            25px 0 25px;
-
-        overflow:
-            visible !important;
-    }
-
-
-    .gallery-swiper .swiper-wrapper {
-
-        align-items:
-            center;
-    }
-
-
-    .gallery-swiper .swiper-slide {
-
-        width:
-            235px !important;
-
-        height:
-            325px;
-
-        flex-shrink:
-            0;
-
-        border-radius:
-            20px;
-
-        transform:
-            scale(0.82);
-
-        opacity:
-            0.4;
-
-        filter:
-            brightness(0.5);
-    }
-
-
-    .gallery-swiper
-    .swiper-slide-active {
-
-        width:
-            235px !important;
-
-        height:
-            325px;
-
-        transform:
-            scale(1) !important;
-
-        opacity:
-            1 !important;
-
-        filter:
-            brightness(1) !important;
-
-        z-index:
-            20 !important;
-    }
-
-
-    .gallery-swiper
-    .swiper-slide-prev,
-
-    .gallery-swiper
-    .swiper-slide-next {
-
-        transform:
-            scale(0.75);
-
-        opacity:
-            0.45;
-
-        filter:
-            brightness(0.5);
-    }
-
-
-    .gallery-swiper
-    .swiper-slide img {
-
-        width:
-            100%;
-
-        height:
-            100%;
-
-        object-fit:
-            cover;
-
-        border-radius:
-            18px;
-    }
-
-
-    .gallery-swiper
-    .swiper-pagination {
-
-        position:
-            relative;
-
-        width:
-            100%;
-
-        margin-top:
-            22px;
-
-        text-align:
-            center;
-    }
-
-
-    .gallery-swiper
-    .swiper-pagination-bullet {
-
-        width:
-            9px;
-
-        height:
-            9px;
-
-        margin:
-            0 4px !important;
-
-        background:
-            var(--kuromi-lavender);
-
-        opacity:
-            0.6;
-    }
-
-
-    .gallery-swiper
-    .swiper-pagination-bullet-active {
-
-        background:
-            var(--kuromi-pink);
-
-        opacity:
-            1;
-
-        transform:
-            scale(1.2);
+            40px 0;
     }
 
 
@@ -3009,10 +2415,6 @@ img {
    SEGURIDAD CONTRA SCROLL HORIZONTAL
 ========================================================== */
 
-/*
-   NO aplicar esto al swiper.
-*/
-
 html {
 
     width:
@@ -3053,15 +2455,4 @@ body {
 
     overflow-x:
         hidden;
-}
-
-
-/*
-   EL SWIPER QUEDA LIBRE PARA MOVERSE.
-*/
-
-.gallery-swiper {
-
-    overflow:
-        visible !important;
 }
