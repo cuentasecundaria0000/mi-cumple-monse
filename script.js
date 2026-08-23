@@ -8,10 +8,13 @@ const CONFIG = {
     openingDelay: 1850,
 
     photos: [
-        "img/img1.jpeg",
-        "img/img5.jpeg",
-        "img/img3.jpeg",
-        "img/img4.jpeg"
+        "img/img1.png",
+        "img/img2.png",
+        "img/img3.png",
+        "img/img4.png",
+        "img/img5.png",
+        "img/img6.png",
+        "img/img7.png"
     ]
 };
 
