@@ -256,66 +256,70 @@ if (invitedTable && guestTableElement && tableTextElement) {
 // CARRUSEL DE FOTOS - ESTILO ELEGANTE
 // ============================================
 const gallerySwiper = new Swiper('.gallery-swiper', {
+    loop: true,
+    centeredSlides: true,
+    grabCursor: true,
+    speed: 700,
+    slidesPerView: 7,
+    spaceBetween: 18,
     effect: 'coverflow',
 
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: 'auto',
-
-    initialSlide: 0,
-    loop: true,
-    loopedSlides: 4,
-
-    // Hace que los cambios del DOM no rompan el carrusel
-    observer: true,
-    observeParents: true,
-
-    // Transición más elegante
-    speed: 1200,
-
-    // Autoplay suave
-    autoplay: {
-        delay: 1800,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: false,
-        waitForTransition: true,
+    // ========================================
+    // EFECTO 3D COVERFLOW
+    // ========================================
+    coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 140,
+        modifier: 1,
+        scale: 0.78,
+        slideShadows: false
     },
 
     // ========================================
-    // EFECTO 3D ELEGANTE
+    // AUTOPLAY DE TRANSICIÓN
     // ========================================
-    coverflowEffect: {
-        rotate: 8,
-        stretch: 0,
-        depth: 250,
-        modifier: 1.2,
-        scale: 0.88,
-        slideShadows: false,
+    autoplay: {
+        delay: 2800,
+        disableOnInteraction: false
     },
 
     // ========================================
     // PAGINACIÓN
     // ========================================
     pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
+        el: '.gallery-swiper .swiper-pagination',
+        clickable: true
     },
 
-    // Permite movimiento táctil suave
-    touchRatio: 0.8,
-    resistanceRatio: 0.65,
-
-    // Mejora la fluidez
-    watchSlidesProgress: true,
-});
-
-// ============================================
-// INICIAR AUTOPLAY AL CARGAR
-// ============================================
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        if (gallerySwiper && gallerySwiper.autoplay) {
-            gallerySwiper.autoplay.start();
+    // ========================================
+    // RESPONSIVE / BREAKPOINTS
+    // ========================================
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+            spaceBetween: 15,
+            centeredSlides: true
+        },
+        480: {
+            slidesPerView: 1.15,
+            spaceBetween: 15,
+            centeredSlides: true
+        },
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 18,
+            centeredSlides: true
+        },
+        1000: {
+            slidesPerView: 5,
+            spaceBetween: 18,
+            centeredSlides: true
+        },
+        1200: {
+            slidesPerView: 7,
+            spaceBetween: 18,
+            centeredSlides: true
         }
-    }, 500);
+    }
 });
