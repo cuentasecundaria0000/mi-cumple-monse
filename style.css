@@ -1598,7 +1598,6 @@ img {
     object-fit: contain;
 }
 
-
 /* ==========================================================
    EFECTO REVEAL Y PETALS
 ========================================================== */
@@ -1673,11 +1672,14 @@ img {
 
 @media (max-width: 768px) {
 
+    /* ======================================================
+       SOBRE
+    ====================================================== */
+
     .envelope-area {
         transform:
             translateY(-35px);
     }
-
 
     .envelope-wrapper {
         width:
@@ -1686,11 +1688,9 @@ img {
         height: 260px;
     }
 
-
     .envelope {
         height: 215px;
     }
-
 
     .letter {
         left: 5%;
@@ -1698,18 +1698,37 @@ img {
         width: 90%;
 
         height: 185px;
+
+        padding: 18px;
     }
 
+    .letter p {
+        font-size: 1.05rem;
+
+        line-height: 1.4;
+    }
+
+    .letter strong {
+        font-size: 2.35rem;
+
+        line-height: 1.2;
+    }
 
     .seal {
         top: 85px;
+
+        width: 60px;
+        height: 60px;
     }
 
+
+    /* ======================================================
+       TIMELINE
+    ====================================================== */
 
     .timeline::before {
         left: 20px;
     }
-
 
     .timeline-item {
         grid-template-columns: 1fr;
@@ -1719,23 +1738,26 @@ img {
         padding-left: 45px;
     }
 
-
     .timeline-dot {
         left: 11px;
     }
 
-
     .timeline-time {
         text-align: left;
+
+        font-size: 1.2rem;
     }
 
+
+    /* ======================================================
+       FOOTER
+    ====================================================== */
 
     .footer-wrapper {
         flex-direction: column;
 
         gap: 20px;
     }
-
 
     .footer-side-img {
         width: 100px;
@@ -1745,267 +1767,496 @@ img {
 
 /* ==========================================================
    CELULARES
+   TIPOGRAFÍA GRANDE
 ========================================================== */
 
 @media (max-width: 480px) {
 
+    /* ======================================================
+       CONFIGURACIÓN GENERAL
+    ====================================================== */
+
     .welcome-screen {
+        padding: 15px;
+    }
+
+    .section {
         padding:
-            15px;
+            65px 16px;
     }
 
 
-    /* SOBRE UN POCO MÁS ARRIBA */
+    /* ======================================================
+       PANTALLA DEL SOBRE
+    ====================================================== */
 
     .envelope-area {
+        width: 96vw;
+
         transform:
             translateY(-40px);
     }
 
-
-    /* TEXTO DEL SOBRE */
-
     .welcome-small {
-        font-size: 1rem;
+        font-size: 1.15rem;
 
         letter-spacing:
-            0.14rem;
+            0.12rem;
 
-        margin-bottom: 8px;
+        line-height: 1.4;
+
+        margin-bottom: 10px;
     }
-
 
     .guest-name {
         font-size:
             clamp(
-                2.6rem,
-                11vw,
-                3.8rem
+                3rem,
+                13vw,
+                4.2rem
             );
 
-        margin-bottom: 22px;
-    }
+        line-height: 1.15;
 
+        margin-bottom: 24px;
+    }
 
     .touch-text {
-        font-size: 1rem;
+        font-size: 1.15rem;
 
-        margin-bottom: 15px;
+        line-height: 1.4;
+
+        margin-bottom: 17px;
     }
 
 
-    /* SOBRE */
+    /* ======================================================
+       SOBRE
+    ====================================================== */
 
     .envelope-wrapper {
         width:
             min(
                 94vw,
-                360px
+                370px
             );
 
-        height: 250px;
+        height: 255px;
     }
-
 
     .envelope {
-        height: 205px;
+        height: 210px;
     }
-
-
-    /* CARTA */
 
     .letter {
-        height: 180px;
+        height: 185px;
 
-        padding: 16px;
+        padding: 18px;
     }
-
 
     .letter p {
-        font-size: 0.95rem;
-    }
+        font-size: 1.05rem;
 
+        line-height: 1.4;
+
+        letter-spacing:
+            0.08rem;
+    }
 
     .letter strong {
-        font-size: 2.1rem;
-    }
+        font-size: 2.35rem;
 
+        line-height: 1.2;
+    }
 
     .flower-icon {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
-
-
-    /* SELLO */
 
     .seal {
-        top: 80px;
+        top: 82px;
 
-        width: 58px;
-        height: 58px;
+        width: 60px;
+        height: 60px;
     }
 
 
-    /* SECCIONES */
+    /* ======================================================
+       HERO / PORTADA
+    ====================================================== */
 
-    .section {
+    .hero {
         padding:
-            55px 16px;
+            65px 18px 50px;
     }
 
+    .hero-kuromi {
+        width: 95px;
+        height: 95px;
+
+        margin-bottom: 20px;
+    }
+
+    .eyebrow {
+        font-size: 1.15rem;
+
+        line-height: 1.4;
+
+        letter-spacing:
+            0.12rem;
+
+        margin-bottom: 15px;
+    }
+
+    .hero-content h2 {
+        font-size:
+            clamp(
+                3rem,
+                12vw,
+                4.4rem
+            );
+
+        line-height: 1.15;
+    }
+
+    .graduate-name {
+        font-size:
+            clamp(
+                4rem,
+                17vw,
+                6rem
+            );
+
+        line-height: 1.15;
+
+        margin:
+            20px 0;
+    }
+
+    .gold-line {
+        width: 75%;
+
+        max-width: 280px;
+
+        height: 3px;
+
+        margin:
+            22px auto;
+    }
+
+    .career {
+        width: 100%;
+
+        max-width: 650px;
+
+        font-size: 1.35rem;
+
+        line-height: 1.65;
+
+        margin:
+            20px auto;
+    }
+
+    .hero-date {
+        font-size: 2rem;
+
+        line-height: 1.4;
+
+        margin-top: 22px;
+    }
+
+    .music-button {
+        margin-top: 28px;
+
+        padding:
+            16px 28px;
+
+        font-size: 1.15rem;
+
+        line-height: 1.3;
+    }
+
+
+    /* ======================================================
+       SECCIONES
+    ====================================================== */
+
+    .section-label {
+        font-size: 1.1rem;
+
+        letter-spacing:
+            0.12rem;
+
+        line-height: 1.4;
+
+        margin-bottom: 14px;
+    }
+
+    .section-card,
+    .rsvp-card {
+        padding:
+            32px 22px;
+
+        border-radius: 24px;
+    }
 
     .section-card h2,
     .section-heading h2,
     .rsvp-card h2 {
         font-size:
             clamp(
-                2.4rem,
-                9vw,
-                3.5rem
+                2.7rem,
+                11vw,
+                4rem
             );
-    }
 
+        line-height: 1.15;
+
+        margin-bottom: 22px;
+    }
 
     .section-card p,
     .rsvp-card p {
-        font-size: 1.12rem;
+        font-size: 1.25rem;
 
-        line-height: 1.65;
+        line-height: 1.7;
+
+        margin:
+            17px auto;
+    }
+
+    .highlight-text {
+        font-size:
+            1.45rem !important;
+
+        line-height: 1.5;
+    }
+
+    .section-flower-img,
+    .event-icon-img {
+        width: 90px;
+        height: 90px;
+
+        margin-bottom: 15px;
     }
 
 
-    /* HERO */
+    /* ======================================================
+       CONTADOR
+    ====================================================== */
 
-    .hero {
+    .countdown-section {
         padding:
-            60px 16px 40px;
+            65px 16px;
     }
 
-
-    .hero-kuromi {
-        width: 85px;
-        height: 85px;
-    }
-
-
-    .hero-content h2 {
+    .countdown-section .script-heading {
         font-size:
             clamp(
-                2.8rem,
+                2.5rem,
                 10vw,
-                4rem
+                3.5rem
             );
+
+        line-height: 1.2;
     }
-
-
-    .graduate-name {
-        font-size:
-            clamp(
-                3.7rem,
-                15vw,
-                5.5rem
-            );
-    }
-
-
-    .career {
-        font-size: 1.2rem;
-    }
-
-
-    .hero-date {
-        font-size: 1.8rem;
-    }
-
-
-    .eyebrow,
-    .section-label {
-        font-size: 0.95rem;
-    }
-
-
-    /* CONTADOR */
 
     .countdown-wrapper {
         flex-direction: column;
 
-        gap: 15px;
+        gap: 20px;
     }
 
+    .countdown-side-img {
+        width: 100px;
+    }
 
     .countdown {
         grid-template-columns:
             repeat(
                 2,
-                minmax(100px, 1fr)
+                minmax(115px, 1fr)
             );
 
-        gap: 12px;
+        gap: 14px;
 
         width: 100%;
 
-        max-width: 300px;
+        max-width: 330px;
     }
-
-
-    .countdown-side-img {
-        width: 90px;
-    }
-
 
     .time-box {
         padding:
-            16px 6px;
-    }
+            20px 8px;
 
+        border-radius: 18px;
+    }
 
     .time-box span {
-        font-size: 2.4rem;
-    }
+        font-size: 2.8rem;
 
+        line-height: 1;
+    }
 
     .time-box small {
-        font-size: 0.8rem;
+        font-size: 0.95rem;
+
+        line-height: 1.3;
+
+        margin-top: 9px;
+    }
+
+    .countdown-message {
+        font-size: 1.35rem;
+
+        line-height: 1.5;
+
+        margin-top: 28px;
     }
 
 
-    /* BOTONES */
+    /* ======================================================
+       EVENTOS
+    ====================================================== */
+
+    .event-section {
+        padding:
+            65px 16px;
+    }
+
+    .event-grid {
+        width: 100%;
+    }
+
+    .event-card {
+        padding:
+            38px 20px;
+
+        border-radius: 24px;
+    }
+
+    .event-card h3 {
+        font-size:
+            clamp(
+                2.5rem,
+                10vw,
+                3.4rem
+            );
+
+        line-height: 1.2;
+
+        margin:
+            18px 0;
+    }
+
+    .event-date {
+        font-size: 1.35rem;
+
+        line-height: 1.6;
+    }
 
     .primary-button {
         width: 100%;
 
-        max-width: 280px;
+        max-width: 300px;
 
         padding:
-            16px 20px;
+            17px 20px;
 
-        font-size: 1.05rem;
+        font-size: 1.15rem;
+
+        line-height: 1.3;
+
+        margin-top: 25px;
     }
 
 
-    .music-button {
-        font-size: 1rem;
+    /* ======================================================
+       ITINERARIO
+    ====================================================== */
 
+    .timeline-section {
         padding:
-            14px 25px;
+            65px 16px;
+    }
+
+    .timeline {
+        width: 100%;
+    }
+
+    .timeline::before {
+        left: 19px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        padding-left: 48px;
+
+        margin-bottom: 32px;
+    }
+
+    .timeline-dot {
+        left: 9px;
+
+        width: 22px;
+        height: 22px;
+    }
+
+    .timeline-time {
+        text-align: left;
+
+        font-size: 1.25rem;
+
+        line-height: 1.4;
+
+        padding-top: 0;
+
+        margin-bottom: 3px;
+    }
+
+    .timeline-content {
+        padding:
+            22px 20px;
+
+        border-radius: 18px;
+
+        font-size: 1.18rem;
+
+        line-height: 1.65;
+    }
+
+    .timeline-content h3 {
+        font-size: 2rem;
+
+        line-height: 1.2;
+
+        margin-bottom: 10px;
     }
 
 
-    /* CARRUSEL */
+    /* ======================================================
+       CARRUSEL
+    ====================================================== */
+
+    .gallery-section {
+        padding:
+            65px 10px;
+    }
 
     .gallery-swiper {
-        padding-top: 20px;
+        padding-top: 25px;
 
-        padding-bottom: 10px;
+        padding-bottom: 15px;
     }
-
 
     .gallery-swiper .swiper-slide {
-        width: 220px;
+        width: 230px;
 
-        height: 310px;
+        height: 325px;
     }
-
 
     .gallery-swiper .swiper-slide-active {
         transform:
@@ -2013,33 +2264,47 @@ img {
     }
 
 
-    /* TIMELINE */
+    /* ======================================================
+       FOOTER
+    ====================================================== */
 
-    .timeline-content {
-        font-size: 1.05rem;
-
-        line-height: 1.55;
+    .footer {
+        padding:
+            65px 18px;
     }
 
+    .footer-flower {
+        font-size: 2.5rem;
 
-    .timeline-content h3 {
-        font-size: 1.8rem;
+        margin-bottom: 18px;
     }
 
+    .footer-wrapper {
+        flex-direction: column;
 
-    .timeline-time {
-        font-size: 1.15rem;
+        gap: 22px;
     }
 
-
-    /* FOOTER */
+    .footer-side-img {
+        width: 110px;
+    }
 
     .footer h2 {
-        font-size: 2rem;
+        font-size:
+            clamp(
+                2.2rem,
+                9vw,
+                3.2rem
+            );
+
+        line-height: 1.3;
     }
 
-
     .footer p {
-        font-size: 1.15rem;
+        font-size: 1.25rem;
+
+        line-height: 1.5;
+
+        margin-top: 20px;
     }
 }
