@@ -254,50 +254,100 @@ if (invitedTable && guestTableElement && tableTextElement) {
 }
 
 /* =========================================================
-   CARRUSEL DE FOTOS (formato pos0-pos5)
-   Genera las imágenes desde CONFIG.photos dentro de
-   <div class="carousel-xv"><div class="carousel-track"></div></div>
+   CARRUSEL DE FOTOS (formato pos0-pos5 + puntitos)
+   Genera las imágenes y los puntos de paginación desde
+   CONFIG.photos dentro de:
+   <div class="carousel-xv">
+     <div class="carousel-track"></div>
+     <div class="carousel-dots"></div>
+   </div>
+
+   Reparte las fotos de forma simétrica alrededor del centro
+   sin importar cuántas sean (1, 3, 4, 6, 10...), evitando que
+   una misma foto aparezca dos veces a la vez.
 ========================================================= */
 
 function initCarousel() {
     const carouselTrack = document.querySelector(".carousel-track");
+    const carouselDots = document.querySelector(".carousel-dots");
 
     if (!carouselTrack || !CONFIG.photos || !CONFIG.photos.length) return;
 
-    // Genera las imágenes a partir de CONFIG.photos
+    const photos = CONFIG.photos;
+    const total = photos.length;
+
+    // Genera las imágenes
     carouselTrack.innerHTML = "";
 
-    CONFIG.photos.forEach((src, index) => {
+    const fotos = photos.map((src, index) => {
         const img = document.createElement("img");
         img.src = src;
         img.alt = `Foto ${index + 1}`;
         img.className = "carousel-img";
         carouselTrack.appendChild(img);
+        return img;
     });
 
-    const fotos = carouselTrack.querySelectorAll(".carousel-img");
-    const totalPosiciones = 6; // pos0 a pos5
+    // Genera los puntitos de paginación (uno por foto)
+    let dots = [];
 
-    if (!fotos.length) return;
+    if (carouselDots) {
+        carouselDots.innerHTML = "";
 
-    let inicio = 0;
+        dots = photos.map((_, index) => {
+            const dot = document.createElement("span");
+            dot.className = "carousel-dot";
 
-    function actualizarCarrusel() {
-        fotos.forEach((foto, i) => {
-            const posicion = (i - inicio + fotos.length) % fotos.length;
+            dot.addEventListener("click", () => {
+                center = index;
+                render();
+            });
 
-            foto.className = "carousel-img";
-
-            if (posicion < totalPosiciones) {
-                foto.classList.add("pos" + posicion);
-            }
+            carouselDots.appendChild(dot);
+            return dot;
         });
-
-        inicio = (inicio + 1) % fotos.length;
     }
 
-    actualizarCarrusel();
-    setInterval(actualizarCarrusel, 2500);
+    // Mapa fijo de desplazamiento (offset respecto al centro) -> clase pos
+    const offsetToPos = {
+        "-3": "pos0",
+        "-2": "pos1",
+        "-1": "pos2",
+        "0": "pos3",
+        "1": "pos4",
+        "2": "pos5"
+    };
+
+    // Orden de prioridad para ir sumando fotos según cuántas haya,
+    // manteniendo siempre el centro y creciendo simétricamente.
+    const priority = [0, -1, 1, -2, 2, -3];
+    const slotsCount = Math.min(total, 6);
+    const activeOffsets = priority.slice(0, slotsCount);
+
+    let center = 0;
+
+    function render() {
+        fotos.forEach((foto) => {
+            foto.className = "carousel-img";
+        });
+
+        activeOffsets.forEach((offset) => {
+            const index = ((center + offset) % total + total) % total;
+            const posClass = offsetToPos[String(offset)];
+            fotos[index].classList.add(posClass);
+        });
+
+        dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === center);
+        });
+    }
+
+    render();
+
+    setInterval(() => {
+        center = (center + 1) % total;
+        render();
+    }, 2500);
 }
 
 initCarousel();
