@@ -1371,6 +1371,45 @@ img {
 .carousel-img.pos4 { transform: translateX(clamp(140px,  26vw, 270px)) scale(0.85); opacity: 0.7;  z-index: 2; }
 .carousel-img.pos5 { transform: translateX(clamp(220px,  42vw, 430px)) scale(0.72); opacity: 0.45; z-index: 1; }
 
+/* Puntitos de paginación (reemplazan a los del Swiper) */
+.carousel-dots {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: var(--kuromi-lavender);
+
+    opacity: 0.6;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease,
+        background 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: var(--kuromi-pink);
+
+    opacity: 1;
+
+    transform: scale(1.25);
+}
+
 
 /* ==========================================================
    FOOTER
