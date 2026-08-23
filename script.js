@@ -35,6 +35,10 @@ const musicIcon = document.getElementById("musicIcon");
 let invitationOpened = false;
 
 document.body.style.overflow = "hidden";
+document.body.style.position = "fixed";
+document.body.style.width = "100%";
+document.body.style.top = "0";
+document.body.style.left = "0";
 
 /* =========================================================
    APERTURA DEL SOBRE
@@ -58,8 +62,28 @@ function openInvitation() {
             invitationContent.classList.add("visible");
         }
 
-        document.body.style.overflow = "auto";
+        // Libera el bloqueo de scroll
+        document.body.style.overflow = "";
+        document.body.style.position = "";
+        document.body.style.width = "";
+        document.body.style.top = "";
+        document.body.style.left = "";
+
+        // Fuerza el inicio de la página, con varios intentos
+        // para asegurar que quede al tope aunque el navegador
+        // aplique el layout con un frame de retraso.
         window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+
+        requestAnimationFrame(() => {
+            window.scrollTo(0, 0);
+
+            requestAnimationFrame(() => {
+                window.scrollTo(0, 0);
+            });
+        });
+
         tryPlayMusic();
     }, CONFIG.openingDelay);
 }
@@ -318,13 +342,16 @@ function initCarousel() {
         "-1": "pos2",
         "0": "pos3",
         "1": "pos4",
-        "2": "pos5"
+        "2": "pos5",
+        "3": "pos6"
     };
 
     // Orden de prioridad para ir sumando fotos según cuántas haya,
-    // manteniendo siempre el centro y creciendo simétricamente.
-    const priority = [0, -1, 1, -2, 2, -3];
-    const slotsCount = Math.min(total, 6);
+    // manteniendo siempre el centro y creciendo simétricamente
+    // (izquierda, derecha, izquierda, derecha...) hasta un máximo
+    // de 7 fotos visibles a la vez (patrón 3-1-3).
+    const priority = [0, -1, 1, -2, 2, -3, 3];
+    const slotsCount = Math.min(total, 7);
     const activeOffsets = priority.slice(0, slotsCount);
 
     let center = 0;
