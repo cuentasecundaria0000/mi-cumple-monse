@@ -1,7 +1,7 @@
 /* ==========================================================
-   PALETA Y VARIABLES KUROMI ESTÉTICA
-   DARK / LAVENDER / PINK
+   PALETA Y VARIABLES KUROMI
 ========================================================== */
+
 :root {
     --kuromi-black: #17121e;
     --kuromi-dark-purple: #23192f;
@@ -38,13 +38,23 @@
 
 html {
     scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
 }
 
 body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
     font-family: "Montserrat", sans-serif;
+
     color: var(--text-dark);
     background: var(--kuromi-black);
-    overflow-x: hidden;
+
+    overflow-x: hidden !important;
+
     text-align: center;
 }
 
@@ -57,27 +67,34 @@ textarea {
 
 img {
     display: block;
-    width: 100%;
+    max-width: 100%;
+    height: auto;
 }
 
 
 /* ==========================================================
-   PANTALLA DE BIENVENIDA / SOBRE DE KUROMI
+   PANTALLA DE BIENVENIDA
 ========================================================== */
 
 .welcome-screen {
     position: fixed;
     inset: 0;
+
     z-index: 9999;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    width: 100%;
+    max-width: 100vw;
+
     min-height: 100vh;
     min-height: 100svh;
 
     padding: 20px;
+
+    overflow: hidden;
 
     background:
         radial-gradient(
@@ -108,44 +125,58 @@ img {
 }
 
 
-/* CONTENEDOR DEL SOBRE */
+/* ==========================================================
+   CONTENEDOR DEL SOBRE
+========================================================== */
 
 .envelope-area {
     width: min(94vw, 620px);
+    max-width: 100%;
+
     text-align: center;
+
     margin: 0 auto;
 
-    /* SUBE EL SOBRE PARA CENTRARLO MEJOR */
     transform: translateY(-45px);
 }
 
 
-/* TEXTO SUPERIOR */
+/* ==========================================================
+   TEXTO SUPERIOR
+========================================================== */
 
 .welcome-small {
     margin-bottom: 10px;
 
-    font-size: 1.15rem;
+    font-size: 1.25rem;
+
     letter-spacing: 0.2rem;
+
     text-transform: uppercase;
 
     color: var(--kuromi-pink);
+
     font-weight: 700;
+
+    line-height: 1.4;
 }
 
 
-/* NOMBRE DEL INVITADO */
+/* ==========================================================
+   NOMBRE DEL INVITADO
+========================================================== */
 
 .guest-name {
     margin-bottom: 28px;
 
     font-family: "Fredoka", sans-serif;
 
-    font-size: clamp(
-        2.8rem,
-        9vw,
-        4.5rem
-    );
+    font-size:
+        clamp(
+            2.8rem,
+            9vw,
+            4.5rem
+        );
 
     color: var(--kuromi-lavender);
 
@@ -155,7 +186,9 @@ img {
 }
 
 
-/* TEXTO TOCA EL SOBRE */
+/* ==========================================================
+   TEXTO TOCA EL SOBRE
+========================================================== */
 
 .touch-text {
     display: block;
@@ -164,11 +197,13 @@ img {
 
     color: var(--kuromi-soft-pink);
 
-    font-size: 1.15rem;
+    font-size: 1.25rem;
 
     letter-spacing: 0.1rem;
 
     font-weight: 500;
+
+    line-height: 1.4;
 }
 
 
@@ -180,6 +215,8 @@ img {
     position: relative;
 
     width: min(88vw, 430px);
+    max-width: 100%;
+
     height: 280px;
 
     margin: auto;
@@ -194,6 +231,8 @@ img {
 
     inset: auto 0 0;
 
+    width: 100%;
+
     height: 245px;
 
     filter:
@@ -203,7 +242,9 @@ img {
 }
 
 
-/* PARTE TRASERA */
+/* ==========================================================
+   PARTE TRASERA
+========================================================== */
 
 .envelope-back {
     position: absolute;
@@ -218,7 +259,9 @@ img {
 }
 
 
-/* SOLAPA */
+/* ==========================================================
+   SOLAPA
+========================================================== */
 
 .flap {
     position: absolute;
@@ -255,7 +298,9 @@ img {
 }
 
 
-/* FRENTE IZQUIERDO */
+/* ==========================================================
+   FRENTE DEL SOBRE
+========================================================== */
 
 .envelope-front-left,
 .envelope-front-right,
@@ -346,10 +391,12 @@ img {
 }
 
 
-/* TEXTO DE LA CARTA */
+/* ==========================================================
+   TEXTO DE LA CARTA
+========================================================== */
 
 .letter p {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
 
     letter-spacing: 0.12rem;
 
@@ -360,21 +407,29 @@ img {
     margin-top: 5px;
 
     font-weight: 600;
+
+    line-height: 1.4;
 }
 
 
-/* NOMBRE DE LA CARTA */
+/* ==========================================================
+   NOMBRE DE LA CARTA
+========================================================== */
 
 .letter strong {
     font-family: "Fredoka", cursive;
 
-    font-size: 2.4rem;
+    font-size: 2.5rem;
 
     color: var(--kuromi-pink);
+
+    line-height: 1.2;
 }
 
 
-/* ICONO */
+/* ==========================================================
+   ICONO
+========================================================== */
 
 .flower-icon {
     font-size: 2.5rem;
@@ -428,7 +483,9 @@ img {
 }
 
 
-/* SOBRE ABIERTO */
+/* ==========================================================
+   SOBRE ABIERTO
+========================================================== */
 
 .envelope-wrapper.open .flap {
     transform:
@@ -455,11 +512,16 @@ img {
 
 
 /* ==========================================================
-   PORTADA Y CONTENIDO
+   CONTENIDO
 ========================================================== */
 
 .invitation-content {
+    width: 100%;
+    max-width: 100%;
+
     opacity: 0;
+
+    overflow-x: hidden;
 
     transition:
         opacity 1s ease;
@@ -480,6 +542,9 @@ img {
 .hero {
     position: relative;
 
+    width: 100%;
+    max-width: 100%;
+
     min-height: 100svh;
 
     display: flex;
@@ -487,7 +552,6 @@ img {
     flex-direction: column;
 
     justify-content: center;
-
     align-items: center;
 
     padding:
@@ -505,11 +569,12 @@ img {
         );
 }
 
-
 .hero-overlay {
     position: absolute;
 
     inset: 0;
+
+    pointer-events: none;
 
     background:
         radial-gradient(
@@ -525,7 +590,9 @@ img {
 }
 
 
-/* KUROMI */
+/* ==========================================================
+   KUROMI
+========================================================== */
 
 .hero-kuromi {
     position: relative;
@@ -537,6 +604,8 @@ img {
 
     margin:
         0 auto 15px;
+
+    object-fit: contain;
 
     filter:
         drop-shadow(
@@ -551,7 +620,6 @@ img {
         infinite
         alternate;
 }
-
 
 @keyframes floatKuromi {
 
@@ -569,7 +637,9 @@ img {
 }
 
 
-/* CONTENIDO HERO */
+/* ==========================================================
+   CONTENIDO HERO
+========================================================== */
 
 .hero-content {
     position: relative;
@@ -579,6 +649,8 @@ img {
     width:
         min(900px, 100%);
 
+    max-width: 100%;
+
     text-align: center;
 
     color:
@@ -586,13 +658,15 @@ img {
 }
 
 
-/* ETIQUETAS */
+/* ==========================================================
+   ETIQUETAS
+========================================================== */
 
 .eyebrow,
 .section-label {
     margin-bottom: 12px;
 
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 
     font-weight: 700;
 
@@ -602,10 +676,14 @@ img {
 
     color:
         var(--kuromi-pink);
+
+    line-height: 1.4;
 }
 
 
-/* TITULO */
+/* ==========================================================
+   TITULO HERO
+========================================================== */
 
 .hero-content h2 {
     font-family:
@@ -630,7 +708,7 @@ img {
 
 
 /* ==========================================================
-   NOMBRE PRINCIPAL CURSIVO
+   NOMBRE PRINCIPAL
 ========================================================== */
 
 .graduate-name {
@@ -663,7 +741,9 @@ img {
 }
 
 
-/* LINEA */
+/* ==========================================================
+   LINEA
+========================================================== */
 
 .gold-line {
     width:
@@ -689,9 +769,12 @@ img {
 }
 
 
-/* CARRERA */
+/* ==========================================================
+   CARRERA
+========================================================== */
 
 .career {
+    width: 100%;
     max-width: 620px;
 
     margin:
@@ -711,7 +794,9 @@ img {
 }
 
 
-/* FECHA */
+/* ==========================================================
+   FECHA
+========================================================== */
 
 .hero-date {
     margin-top: 18px;
@@ -729,10 +814,14 @@ img {
 
     color:
         var(--kuromi-pink);
+
+    line-height: 1.4;
 }
 
 
-/* BOTON MUSICA */
+/* ==========================================================
+   BOTON MUSICA
+========================================================== */
 
 .music-button {
     margin-top: 25px;
@@ -740,7 +829,7 @@ img {
     padding:
         16px 32px;
 
-    font-size: 1.1rem;
+    font-size: 1.15rem;
 
     font-weight: 600;
 
@@ -827,7 +916,6 @@ img {
         infinite;
 }
 
-
 @keyframes scrollDown {
 
     0% {
@@ -851,14 +939,19 @@ img {
 
 
 /* ==========================================================
-   SECCIONES Y TARJETAS
+   SECCIONES
 ========================================================== */
 
 .section {
     position: relative;
 
+    width: 100%;
+    max-width: 100%;
+
     padding:
         80px 20px;
+
+    overflow: hidden;
 
     background:
         var(--kuromi-black);
@@ -869,6 +962,8 @@ img {
 .rsvp-card {
     width:
         min(820px, 100%);
+
+    max-width: 100%;
 
     margin: auto;
 
@@ -900,11 +995,14 @@ img {
 }
 
 
-/* TITULOS DE SECCIONES */
+/* ==========================================================
+   TITULOS DE SECCIONES
+========================================================== */
 
 .section-card h2,
 .section-heading h2,
 .rsvp-card h2 {
+
     margin-bottom: 20px;
 
     font-family:
@@ -925,10 +1023,13 @@ img {
 }
 
 
-/* PARRAFOS */
+/* ==========================================================
+   PARRAFOS
+========================================================== */
 
 .section-card p,
 .rsvp-card p {
+
     margin:
         14px auto;
 
@@ -948,10 +1049,13 @@ img {
 }
 
 
-/* IMAGENES */
+/* ==========================================================
+   IMAGENES DE SECCIONES
+========================================================== */
 
 .section-flower-img,
 .event-icon-img {
+
     width: 80px;
     height: 80px;
 
@@ -966,9 +1070,12 @@ img {
 }
 
 
-/* TEXTO DESTACADO */
+/* ==========================================================
+   TEXTO DESTACADO
+========================================================== */
 
 .highlight-text {
+
     color:
         var(--kuromi-pink) !important;
 
@@ -985,6 +1092,8 @@ img {
 
     margin-top:
         20px !important;
+
+    line-height: 1.5;
 }
 
 
@@ -993,6 +1102,10 @@ img {
 ========================================================== */
 
 .countdown-section {
+
+    width: 100%;
+    max-width: 100%;
+
     text-align: center;
 
     background:
@@ -1009,10 +1122,13 @@ img {
     border-bottom:
         2px solid
         var(--kuromi-purple);
+
+    overflow: hidden;
 }
 
 
 .countdown-wrapper {
+
     display: flex;
 
     align-items: center;
@@ -1025,10 +1141,13 @@ img {
         25px auto;
 
     flex-wrap: wrap;
+
+    max-width: 100%;
 }
 
 
 .countdown-side-img {
+
     width: 110px;
     height: auto;
 
@@ -1037,6 +1156,7 @@ img {
 
 
 .countdown {
+
     display: grid;
 
     grid-template-columns:
@@ -1048,10 +1168,13 @@ img {
     justify-content: center;
 
     gap: 12px;
+
+    max-width: 100%;
 }
 
 
 .time-box {
+
     padding:
         18px 8px;
 
@@ -1075,6 +1198,7 @@ img {
 
 
 .time-box span {
+
     display: block;
 
     font-family:
@@ -1096,6 +1220,7 @@ img {
 
 
 .time-box small {
+
     text-transform: uppercase;
 
     letter-spacing: 0.05rem;
@@ -1114,6 +1239,7 @@ img {
 
 
 .countdown-message {
+
     margin-top: 25px;
 
     color:
@@ -1122,10 +1248,13 @@ img {
     font-size: 1.35rem;
 
     font-weight: 700;
+
+    line-height: 1.5;
 }
 
 
 .countdown-section .script-heading {
+
     color: #ff79c6;
 
     font-size:
@@ -1136,20 +1265,29 @@ img {
         );
 
     margin-top: 15px;
+
+    line-height: 1.2;
 }
 
 
 /* ==========================================================
-   EVENTOS & UBICACIÓN
+   EVENTOS
 ========================================================== */
 
 .event-section {
+
+    width: 100%;
+    max-width: 100%;
+
     background:
         var(--kuromi-black);
+
+    overflow: hidden;
 }
 
 
 .event-grid {
+
     display: grid;
 
     grid-template-columns: 1fr;
@@ -1157,11 +1295,14 @@ img {
     width:
         min(700px, 100%);
 
+    max-width: 100%;
+
     margin: auto;
 }
 
 
 .event-card {
+
     padding:
         40px 24px;
 
@@ -1185,6 +1326,7 @@ img {
 
 
 .event-card h3 {
+
     margin:
         15px 0;
 
@@ -1201,22 +1343,30 @@ img {
 
     color:
         var(--kuromi-lavender);
+
+    line-height: 1.2;
 }
 
 
 .event-date {
+
     font-weight: 700;
 
     color:
         var(--kuromi-pink);
 
     font-size: 1.45rem;
+
+    line-height: 1.5;
 }
 
 
-/* BOTON */
+/* ==========================================================
+   BOTON PRINCIPAL
+========================================================== */
 
 .primary-button {
+
     display: inline-block;
 
     margin-top: 22px;
@@ -1237,7 +1387,7 @@ img {
 
     color: white;
 
-    font-size: 1.15rem;
+    font-size: 1.2rem;
 
     font-weight: 700;
 
@@ -1255,6 +1405,7 @@ img {
 
 
 .primary-button:hover {
+
     transform:
         translateY(-3px)
         scale(1.03);
@@ -1271,30 +1422,40 @@ img {
 
 
 /* ==========================================================
-   ITINERARIO / TIMELINE
+   TIMELINE
 ========================================================== */
 
 .timeline-section {
+
+    width: 100%;
+    max-width: 100%;
+
     background:
         linear-gradient(
             180deg,
             var(--kuromi-black),
             #1f162b
         );
+
+    overflow: hidden;
 }
 
 
 .timeline {
+
     position: relative;
 
     width:
         min(820px, 100%);
+
+    max-width: 100%;
 
     margin: auto;
 }
 
 
 .timeline::before {
+
     content: "";
 
     position: absolute;
@@ -1316,6 +1477,7 @@ img {
 
 
 .timeline-item {
+
     position: relative;
 
     display: grid;
@@ -1326,10 +1488,13 @@ img {
     gap: 50px;
 
     margin-bottom: 40px;
+
+    max-width: 100%;
 }
 
 
 .timeline-dot {
+
     position: absolute;
 
     top: 10px;
@@ -1353,6 +1518,7 @@ img {
 
 
 .timeline-time {
+
     font-weight: 700;
 
     text-align: right;
@@ -1362,11 +1528,14 @@ img {
 
     padding-top: 8px;
 
-    font-size: 1.25rem;
+    font-size: 1.3rem;
+
+    line-height: 1.4;
 }
 
 
 .timeline-content {
+
     padding: 25px;
 
     border-radius: 20px;
@@ -1386,59 +1555,88 @@ img {
 
     text-align: left;
 
-    font-size: 1.1rem;
+    font-size: 1.15rem;
 
     line-height: 1.6;
+
+    min-width: 0;
 }
 
 
 .timeline-content h3 {
+
     margin-bottom: 8px;
 
     font-family:
         "Fredoka",
         sans-serif;
 
-    font-size: 2rem;
+    font-size: 2.1rem;
 
     color:
         var(--kuromi-pink);
+
+    line-height: 1.2;
 }
 
 
 /* ==========================================================
    CARRUSEL SWIPER
+   CORREGIDO PARA EVITAR DESPLAZAMIENTO HORIZONTAL
 ========================================================== */
 
 .gallery-section {
+
+    width: 100%;
+    max-width: 100%;
+
     background:
         var(--kuromi-black);
+
+    overflow: hidden !important;
 }
 
 
 .gallery-swiper {
+
     width: 100%;
+    max-width: 100%;
 
     padding-top: 35px;
 
     padding-bottom: 25px;
 
-    overflow: visible;
+    /*
+       IMPORTANTE:
+       Antes estaba en visible y eso podía
+       generar ancho horizontal extra.
+    */
+    overflow: hidden !important;
+
+    margin: 0 auto;
 }
 
 
 .gallery-swiper .swiper-wrapper {
+
     align-items: center;
+
+    max-width: 100%;
 }
 
 
 .gallery-swiper .swiper-slide {
-    width: 260px;
-    height: 360px;
+
+    width: 250px;
+    height: 345px;
+
+    max-width: 80vw;
 
     border-radius: 18px;
 
     overflow: hidden;
+
+    flex-shrink: 0;
 
     transition:
         transform 0.6s ease,
@@ -1453,8 +1651,9 @@ img {
 
 
 .gallery-swiper .swiper-slide-active {
+
     transform:
-        scale(1.12) !important;
+        scale(1.08) !important;
 
     filter:
         brightness(1) !important;
@@ -1473,6 +1672,7 @@ img {
 
 
 .gallery-swiper .swiper-slide img {
+
     width: 100%;
     height: 100%;
 
@@ -1483,13 +1683,17 @@ img {
 
 
 .gallery-swiper .swiper-pagination {
+
     position: relative;
 
     margin-top: 20px;
+
+    max-width: 100%;
 }
 
 
 .gallery-swiper .swiper-pagination-bullet {
+
     background:
         var(--kuromi-lavender);
 
@@ -1498,6 +1702,7 @@ img {
 
 
 .gallery-swiper .swiper-pagination-bullet-active {
+
     background:
         var(--kuromi-pink);
 
@@ -1506,10 +1711,14 @@ img {
 
 
 /* ==========================================================
-   PIE DE PÁGINA
+   FOOTER
 ========================================================== */
 
 .footer {
+
+    width: 100%;
+    max-width: 100%;
+
     padding:
         70px 20px;
 
@@ -1528,10 +1737,13 @@ img {
     border-top:
         2px solid
         var(--kuromi-pink);
+
+    overflow: hidden;
 }
 
 
 .footer-flower {
+
     margin-bottom: 15px;
 
     font-size: 2.5rem;
@@ -1539,6 +1751,7 @@ img {
 
 
 .footer-wrapper {
+
     display: flex;
 
     align-items: center;
@@ -1555,11 +1768,15 @@ img {
 
 
 .footer-text {
+
     text-align: center;
+
+    min-width: 0;
 }
 
 
 .footer h2 {
+
     font-family:
         "Fredoka",
         sans-serif;
@@ -1579,6 +1796,7 @@ img {
 
 
 .footer p {
+
     margin:
         18px 0 8px;
 
@@ -1588,21 +1806,28 @@ img {
     font-weight: 700;
 
     font-size: 1.3rem;
+
+    line-height: 1.5;
 }
 
 
 .footer-side-img {
+
     width: 130px;
+    max-width: 30vw;
+
     height: auto;
 
     object-fit: contain;
 }
 
+
 /* ==========================================================
-   EFECTO REVEAL Y PETALS
+   REVEAL
 ========================================================== */
 
 .reveal {
+
     opacity: 0;
 
     transform:
@@ -1615,6 +1840,7 @@ img {
 
 
 .reveal.visible {
+
     opacity: 1;
 
     transform:
@@ -1622,7 +1848,12 @@ img {
 }
 
 
+/* ==========================================================
+   PETALS
+========================================================== */
+
 .petal {
+
     position: fixed;
 
     top: -10vh;
@@ -1639,6 +1870,7 @@ img {
 
 
 .petal::before {
+
     content:
         attr(data-char);
 
@@ -1653,6 +1885,7 @@ img {
 @keyframes fall {
 
     to {
+
         transform:
             translate3d(
                 var(--drift),
@@ -1672,27 +1905,76 @@ img {
 
 @media (max-width: 768px) {
 
+    html,
+    body {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        overflow-x: hidden !important;
+    }
+
+
     /* ======================================================
        SOBRE
     ====================================================== */
 
     .envelope-area {
+
+        width: 96vw;
+
+        max-width: 100%;
+
         transform:
             translateY(-35px);
     }
 
+
+    .welcome-small {
+
+        font-size: 1.3rem;
+
+        line-height: 1.4;
+    }
+
+
+    .guest-name {
+
+        font-size:
+            clamp(
+                3.2rem,
+                11vw,
+                4.5rem
+            );
+    }
+
+
+    .touch-text {
+
+        font-size: 1.3rem;
+    }
+
+
     .envelope-wrapper {
+
         width:
             min(92vw, 380px);
+
+        max-width: 100%;
 
         height: 260px;
     }
 
+
     .envelope {
+
         height: 215px;
     }
 
+
     .letter {
+
         left: 5%;
 
         width: 90%;
@@ -1702,19 +1984,25 @@ img {
         padding: 18px;
     }
 
+
     .letter p {
-        font-size: 1.05rem;
+
+        font-size: 1.15rem;
 
         line-height: 1.4;
     }
 
+
     .letter strong {
-        font-size: 2.35rem;
+
+        font-size: 2.5rem;
 
         line-height: 1.2;
     }
 
+
     .seal {
+
         top: 85px;
 
         width: 60px;
@@ -1726,26 +2014,55 @@ img {
        TIMELINE
     ====================================================== */
 
+    .timeline {
+
+        width: 100%;
+
+        max-width: 100%;
+    }
+
+
     .timeline::before {
+
         left: 20px;
     }
 
+
     .timeline-item {
+
         grid-template-columns: 1fr;
 
         gap: 8px;
 
         padding-left: 45px;
+
+        max-width: 100%;
     }
 
+
     .timeline-dot {
+
         left: 11px;
     }
 
+
     .timeline-time {
+
         text-align: left;
 
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+    }
+
+
+    .timeline-content {
+
+        font-size: 1.25rem;
+    }
+
+
+    .timeline-content h3 {
+
+        font-size: 2.2rem;
     }
 
 
@@ -1754,13 +2071,18 @@ img {
     ====================================================== */
 
     .footer-wrapper {
+
         flex-direction: column;
 
         gap: 20px;
     }
 
+
     .footer-side-img {
+
         width: 100px;
+
+        max-width: 100%;
     }
 }
 
@@ -1772,61 +2094,100 @@ img {
 
 @media (max-width: 480px) {
 
+    html,
+    body {
+
+        width: 100%;
+
+        max-width: 100vw;
+
+        overflow-x: hidden !important;
+
+        overscroll-behavior-x: none;
+    }
+
+
     /* ======================================================
-       CONFIGURACIÓN GENERAL
+       GENERAL
     ====================================================== */
 
     .welcome-screen {
+
+        width: 100vw;
+
+        max-width: 100vw;
+
         padding: 15px;
+
+        overflow: hidden;
     }
 
+
     .section {
+
+        width: 100%;
+
+        max-width: 100%;
+
         padding:
-            65px 16px;
+            70px 14px;
+
+        overflow: hidden;
     }
 
 
     /* ======================================================
-       PANTALLA DEL SOBRE
+       SOBRE
     ====================================================== */
 
     .envelope-area {
+
         width: 96vw;
+
+        max-width: 96vw;
 
         transform:
             translateY(-40px);
     }
 
+
     .welcome-small {
-        font-size: 1.15rem;
+
+        font-size: 1.35rem;
 
         letter-spacing:
-            0.12rem;
+            0.1rem;
 
-        line-height: 1.4;
+        line-height: 1.45;
 
-        margin-bottom: 10px;
+        margin-bottom: 12px;
     }
 
+
     .guest-name {
+
         font-size:
             clamp(
-                3rem,
-                13vw,
-                4.2rem
+                3.3rem,
+                14vw,
+                4.5rem
             );
 
         line-height: 1.15;
 
-        margin-bottom: 24px;
+        margin-bottom: 25px;
+
+        overflow-wrap: break-word;
     }
 
+
     .touch-text {
-        font-size: 1.15rem;
 
-        line-height: 1.4;
+        font-size: 1.3rem;
 
-        margin-bottom: 17px;
+        line-height: 1.45;
+
+        margin-bottom: 18px;
     }
 
 
@@ -1835,143 +2196,193 @@ img {
     ====================================================== */
 
     .envelope-wrapper {
+
         width:
             min(
-                94vw,
-                370px
+                92vw,
+                350px
             );
 
-        height: 255px;
+        max-width: 92vw;
+
+        height: 250px;
     }
+
 
     .envelope {
-        height: 210px;
+
+        height: 205px;
     }
+
 
     .letter {
-        height: 185px;
 
-        padding: 18px;
+        height: 180px;
+
+        padding: 16px;
     }
+
 
     .letter p {
-        font-size: 1.05rem;
 
-        line-height: 1.4;
+        font-size: 1.15rem;
+
+        line-height: 1.45;
 
         letter-spacing:
-            0.08rem;
+            0.06rem;
     }
 
+
     .letter strong {
-        font-size: 2.35rem;
+
+        font-size: 2.5rem;
 
         line-height: 1.2;
     }
 
+
     .flower-icon {
-        font-size: 2.2rem;
+
+        font-size: 2.3rem;
     }
 
-    .seal {
-        top: 82px;
 
-        width: 60px;
-        height: 60px;
+    .seal {
+
+        top: 80px;
+
+        width: 58px;
+        height: 58px;
     }
 
 
     /* ======================================================
-       HERO / PORTADA
+       HERO
     ====================================================== */
 
     .hero {
+
+        width: 100%;
+
+        max-width: 100vw;
+
+        min-height: 100svh;
+
         padding:
-            65px 18px 50px;
+            65px 16px 55px;
+
+        overflow: hidden;
     }
+
 
     .hero-kuromi {
-        width: 95px;
-        height: 95px;
 
-        margin-bottom: 20px;
+        width: 100px;
+        height: 100px;
+
+        margin-bottom: 22px;
     }
+
+
+    .hero-content {
+
+        width: 100%;
+
+        max-width: 100%;
+    }
+
 
     .eyebrow {
-        font-size: 1.15rem;
 
-        line-height: 1.4;
+        font-size: 1.3rem;
+
+        line-height: 1.45;
 
         letter-spacing:
-            0.12rem;
+            0.08rem;
 
-        margin-bottom: 15px;
+        margin-bottom: 16px;
     }
 
+
     .hero-content h2 {
+
         font-size:
             clamp(
-                3rem,
-                12vw,
-                4.4rem
+                3.2rem,
+                13vw,
+                4.5rem
             );
 
         line-height: 1.15;
     }
 
+
     .graduate-name {
+
         font-size:
             clamp(
-                4rem,
-                17vw,
-                6rem
+                4.3rem,
+                18vw,
+                6.2rem
             );
 
         line-height: 1.15;
 
         margin:
-            20px 0;
+            22px 0;
+
+        overflow-wrap: break-word;
     }
 
-    .gold-line {
-        width: 75%;
 
-        max-width: 280px;
+    .gold-line {
+
+        width: 80%;
+
+        max-width: 300px;
 
         height: 3px;
+
+        margin:
+            24px auto;
+    }
+
+
+    .career {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        font-size: 1.5rem;
+
+        line-height: 1.65;
 
         margin:
             22px auto;
     }
 
-    .career {
-        width: 100%;
-
-        max-width: 650px;
-
-        font-size: 1.35rem;
-
-        line-height: 1.65;
-
-        margin:
-            20px auto;
-    }
 
     .hero-date {
-        font-size: 2rem;
+
+        font-size: 2.2rem;
 
         line-height: 1.4;
 
-        margin-top: 22px;
+        margin-top: 25px;
     }
 
+
     .music-button {
-        margin-top: 28px;
+
+        margin-top: 30px;
 
         padding:
-            16px 28px;
+            17px 28px;
 
-        font-size: 1.15rem;
+        font-size: 1.25rem;
 
         line-height: 1.3;
     }
@@ -1982,62 +2393,77 @@ img {
     ====================================================== */
 
     .section-label {
-        font-size: 1.1rem;
+
+        font-size: 1.3rem;
 
         letter-spacing:
-            0.12rem;
+            0.08rem;
 
-        line-height: 1.4;
+        line-height: 1.45;
 
-        margin-bottom: 14px;
+        margin-bottom: 16px;
     }
+
 
     .section-card,
     .rsvp-card {
+
+        width: 100%;
+
+        max-width: 100%;
+
         padding:
-            32px 22px;
+            35px 20px;
 
         border-radius: 24px;
     }
 
+
     .section-card h2,
     .section-heading h2,
     .rsvp-card h2 {
+
         font-size:
             clamp(
-                2.7rem,
-                11vw,
-                4rem
+                3rem,
+                12vw,
+                4.3rem
             );
 
         line-height: 1.15;
 
-        margin-bottom: 22px;
+        margin-bottom: 24px;
     }
+
 
     .section-card p,
     .rsvp-card p {
-        font-size: 1.25rem;
+
+        font-size: 1.4rem;
 
         line-height: 1.7;
 
         margin:
-            17px auto;
+            18px auto;
     }
 
+
     .highlight-text {
+
         font-size:
-            1.45rem !important;
+            1.6rem !important;
 
         line-height: 1.5;
     }
 
+
     .section-flower-img,
     .event-icon-img {
-        width: 90px;
-        height: 90px;
 
-        margin-bottom: 15px;
+        width: 95px;
+        height: 95px;
+
+        margin-bottom: 16px;
     }
 
 
@@ -2046,72 +2472,103 @@ img {
     ====================================================== */
 
     .countdown-section {
+
+        width: 100%;
+
+        max-width: 100vw;
+
         padding:
-            65px 16px;
+            70px 12px;
+
+        overflow: hidden;
     }
 
+
     .countdown-section .script-heading {
+
         font-size:
             clamp(
-                2.5rem,
-                10vw,
-                3.5rem
+                2.8rem,
+                11vw,
+                3.8rem
             );
 
         line-height: 1.2;
     }
 
+
     .countdown-wrapper {
+
         flex-direction: column;
 
-        gap: 20px;
+        gap: 22px;
+
+        width: 100%;
+
+        max-width: 100%;
     }
+
 
     .countdown-side-img {
-        width: 100px;
+
+        width: 105px;
+
+        max-width: 35vw;
     }
 
+
     .countdown {
+
         grid-template-columns:
             repeat(
                 2,
-                minmax(115px, 1fr)
+                minmax(0, 1fr)
             );
 
         gap: 14px;
 
         width: 100%;
 
-        max-width: 330px;
+        max-width: 340px;
     }
 
+
     .time-box {
+
+        width: 100%;
+
         padding:
-            20px 8px;
+            21px 6px;
 
         border-radius: 18px;
     }
 
+
     .time-box span {
-        font-size: 2.8rem;
+
+        font-size: 3rem;
 
         line-height: 1;
     }
 
+
     .time-box small {
-        font-size: 0.95rem;
+
+        font-size: 1rem;
 
         line-height: 1.3;
 
         margin-top: 9px;
     }
 
+
     .countdown-message {
-        font-size: 1.35rem;
+
+        font-size: 1.45rem;
 
         line-height: 1.5;
 
-        margin-top: 28px;
+        margin-top: 30px;
     }
 
 
@@ -2120,54 +2577,73 @@ img {
     ====================================================== */
 
     .event-section {
+
+        width: 100%;
+
         padding:
-            65px 16px;
+            70px 14px;
+
+        overflow: hidden;
     }
+
 
     .event-grid {
+
         width: 100%;
+
+        max-width: 100%;
     }
 
+
     .event-card {
+
+        width: 100%;
+
         padding:
-            38px 20px;
+            40px 18px;
 
         border-radius: 24px;
     }
 
+
     .event-card h3 {
+
         font-size:
             clamp(
-                2.5rem,
-                10vw,
-                3.4rem
+                2.8rem,
+                11vw,
+                3.6rem
             );
 
         line-height: 1.2;
 
         margin:
-            18px 0;
+            20px 0;
     }
 
+
     .event-date {
-        font-size: 1.35rem;
+
+        font-size: 1.5rem;
 
         line-height: 1.6;
     }
 
+
     .primary-button {
+
         width: 100%;
 
-        max-width: 300px;
+        max-width: 310px;
 
         padding:
-            17px 20px;
+            18px 20px;
 
-        font-size: 1.15rem;
+        font-size: 1.25rem;
 
         line-height: 1.3;
 
-        margin-top: 25px;
+        margin-top: 27px;
     }
 
 
@@ -2176,91 +2652,186 @@ img {
     ====================================================== */
 
     .timeline-section {
+
+        width: 100%;
+
         padding:
-            65px 16px;
+            70px 14px;
+
+        overflow: hidden;
     }
+
 
     .timeline {
+
         width: 100%;
+
+        max-width: 100%;
     }
+
 
     .timeline::before {
-        left: 19px;
+
+        left: 18px;
     }
 
+
     .timeline-item {
+
         grid-template-columns: 1fr;
 
         gap: 10px;
 
-        padding-left: 48px;
+        padding-left: 47px;
 
-        margin-bottom: 32px;
+        margin-bottom: 34px;
+
+        width: 100%;
+
+        max-width: 100%;
     }
+
 
     .timeline-dot {
-        left: 9px;
 
-        width: 22px;
-        height: 22px;
+        left: 7px;
+
+        width: 23px;
+        height: 23px;
     }
 
+
     .timeline-time {
+
         text-align: left;
 
-        font-size: 1.25rem;
+        font-size: 1.4rem;
 
-        line-height: 1.4;
+        line-height: 1.45;
 
         padding-top: 0;
 
-        margin-bottom: 3px;
+        margin-bottom: 4px;
     }
 
+
     .timeline-content {
+
+        width: 100%;
+
+        max-width: 100%;
+
         padding:
-            22px 20px;
+            24px 18px;
 
         border-radius: 18px;
 
-        font-size: 1.18rem;
+        font-size: 1.3rem;
 
         line-height: 1.65;
+
+        overflow-wrap: break-word;
     }
 
+
     .timeline-content h3 {
-        font-size: 2rem;
+
+        font-size: 2.25rem;
 
         line-height: 1.2;
 
-        margin-bottom: 10px;
+        margin-bottom: 11px;
     }
 
 
     /* ======================================================
        CARRUSEL
+       MÁS PEQUEÑO Y SIN DESBORDAMIENTO
     ====================================================== */
 
     .gallery-section {
+
+        width: 100%;
+
+        max-width: 100vw;
+
         padding:
-            65px 10px;
+            70px 0;
+
+        overflow: hidden !important;
     }
+
 
     .gallery-swiper {
-        padding-top: 25px;
 
-        padding-bottom: 15px;
+        width: 100%;
+
+        max-width: 100vw;
+
+        padding-top: 20px;
+
+        padding-bottom: 20px;
+
+        margin: 0 auto;
+
+        overflow: hidden !important;
     }
+
+
+    .gallery-swiper .swiper-wrapper {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        align-items: center;
+    }
+
 
     .gallery-swiper .swiper-slide {
-        width: 230px;
 
-        height: 325px;
+        width: 190px !important;
+
+        height: 270px !important;
+
+        max-width: 190px !important;
+
+        border-radius: 16px;
+
+        overflow: hidden;
+
+        flex-shrink: 0;
     }
 
+
     .gallery-swiper .swiper-slide-active {
+
         transform:
-            scale(1.08) !important;
+            scale(1.04) !important;
+
+        z-index: 5 !important;
+    }
+
+
+    .gallery-swiper .swiper-slide img {
+
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: cover;
+
+        border-radius: 16px;
+    }
+
+
+    .gallery-swiper .swiper-pagination {
+
+        margin-top: 18px;
+
+        position: relative;
+
+        width: 100%;
     }
 
 
@@ -2269,58 +2840,131 @@ img {
     ====================================================== */
 
     .footer {
+
+        width: 100%;
+
+        max-width: 100vw;
+
         padding:
-            65px 18px;
+            70px 16px;
+
+        overflow: hidden;
     }
+
 
     .footer-flower {
-        font-size: 2.5rem;
 
-        margin-bottom: 18px;
+        font-size: 2.7rem;
+
+        margin-bottom: 20px;
     }
+
 
     .footer-wrapper {
+
         flex-direction: column;
 
-        gap: 22px;
+        gap: 24px;
+
+        width: 100%;
+
+        max-width: 100%;
     }
+
 
     .footer-side-img {
-        width: 110px;
+
+        width: 115px;
+
+        max-width: 40vw;
     }
 
+
     .footer h2 {
+
         font-size:
             clamp(
-                2.2rem,
-                9vw,
-                3.2rem
+                2.5rem,
+                10vw,
+                3.5rem
             );
 
         line-height: 1.3;
     }
 
+
     .footer p {
-        font-size: 1.25rem;
+
+        font-size: 1.4rem;
 
         line-height: 1.5;
 
-        margin-top: 20px;
+        margin-top: 21px;
     }
 }
-html {
-    overflow-x: hidden !important;
+
+
+/* ==========================================================
+   PROTECCIÓN FINAL CONTRA SCROLL HORIZONTAL
+========================================================== */
+
+html,
+body,
+main,
+section,
+header,
+footer,
+.invitation-content,
+.hero,
+.gallery-section,
+.gallery-swiper {
+
+    max-width: 100vw;
 }
 
-body {
-    overflow-x: hidden !important;
-    width: 100%;
+
+/*
+   Evita que elementos transformados,
+   especialmente el carrusel, creen
+   una zona horizontal desplazable.
+*/
+
+.gallery-swiper,
+.gallery-swiper .swiper-wrapper {
+
+    overflow: hidden !important;
+}
+
+
+/*
+   Las imágenes nunca podrán generar
+   ancho adicional.
+*/
+
+img {
+
     max-width: 100%;
+
+    height: auto;
 }
 
-@media (max-width: 480px) {
-    .gallery-swiper {
-        max-width: 100vw;
-        overflow: hidden;
-    }
+
+/*
+   Evita que textos largos rompan
+   el ancho del teléfono.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+strong {
+
+    max-width: 100%;
+
+    overflow-wrap: break-word;
 }
