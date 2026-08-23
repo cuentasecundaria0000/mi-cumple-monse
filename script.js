@@ -3,7 +3,7 @@
 ========================================================= */
 
 const CONFIG = {
-    eventDate: "September 5, 2026 15:00:00",
+    eventDate: "September 19, 2026 15:00:00",
     whatsappNumber: "5210000000000",
     openingDelay: 1850,
 
