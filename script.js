@@ -252,74 +252,52 @@ if (invitedTable && guestTableElement && tableTextElement) {
     guestTableElement.textContent = invitedTable;
     tableTextElement.hidden = false;
 }
-// ============================================
-// CARRUSEL DE FOTOS - ESTILO ELEGANTE
-// ============================================
-const gallerySwiper = new Swiper('.gallery-swiper', {
-    loop: true,
-    centeredSlides: true,
-    grabCursor: true,
-    speed: 700,
-    slidesPerView: 7,
-    spaceBetween: 18,
-    effect: 'coverflow',
 
-    // ========================================
-    // EFECTO 3D COVERFLOW
-    // ========================================
-    coverflowEffect: {
-        rotate: 0,
-        stretch: 0,
-        depth: 140,
-        modifier: 1,
-        scale: 0.78,
-        slideShadows: false
-    },
+/* =========================================================
+   CARRUSEL DE FOTOS (formato pos0-pos5)
+   Genera las imágenes desde CONFIG.photos dentro de
+   <div class="carousel-xv"><div class="carousel-track"></div></div>
+========================================================= */
 
-    // ========================================
-    // AUTOPLAY DE TRANSICIÓN
-    // ========================================
-    autoplay: {
-        delay: 2800,
-        disableOnInteraction: false
-    },
+function initCarousel() {
+    const carouselTrack = document.querySelector(".carousel-track");
 
-    // ========================================
-    // PAGINACIÓN
-    // ========================================
-    pagination: {
-        el: '.gallery-swiper .swiper-pagination',
-        clickable: true
-    },
+    if (!carouselTrack || !CONFIG.photos || !CONFIG.photos.length) return;
 
-    // ========================================
-    // RESPONSIVE / BREAKPOINTS
-    // ========================================
-    breakpoints: {
-        0: {
-            slidesPerView: 1,
-            spaceBetween: 15,
-            centeredSlides: true
-        },
-        480: {
-            slidesPerView: 1.15,
-            spaceBetween: 15,
-            centeredSlides: true
-        },
-        768: {
-            slidesPerView: 3,
-            spaceBetween: 18,
-            centeredSlides: true
-        },
-        1000: {
-            slidesPerView: 5,
-            spaceBetween: 18,
-            centeredSlides: true
-        },
-        1200: {
-            slidesPerView: 7,
-            spaceBetween: 18,
-            centeredSlides: true
-        }
+    // Genera las imágenes a partir de CONFIG.photos
+    carouselTrack.innerHTML = "";
+
+    CONFIG.photos.forEach((src, index) => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = `Foto ${index + 1}`;
+        img.className = "carousel-img";
+        carouselTrack.appendChild(img);
+    });
+
+    const fotos = carouselTrack.querySelectorAll(".carousel-img");
+    const totalPosiciones = 6; // pos0 a pos5
+
+    if (!fotos.length) return;
+
+    let inicio = 0;
+
+    function actualizarCarrusel() {
+        fotos.forEach((foto, i) => {
+            const posicion = (i - inicio + fotos.length) % fotos.length;
+
+            foto.className = "carousel-img";
+
+            if (posicion < totalPosiciones) {
+                foto.classList.add("pos" + posicion);
+            }
+        });
+
+        inicio = (inicio + 1) % fotos.length;
     }
-});
+
+    actualizarCarrusel();
+    setInterval(actualizarCarrusel, 2500);
+}
+
+initCarousel();
