@@ -17,18 +17,13 @@
       content="Acompáñame a celebrar mi cumpleaños número 10. ¡Te espero para compartir este día tan especial!">
 
 <meta property="og:image"
-      content="https://cuentasecundaria0000.github.io/mi-cumple-monse/img/vista-previa.png">
-
-<meta property="og:image:secure_url"
-      content="https://cuentasecundaria0000.github.io/mi-cumple-monse/img/vista-previa.png">
-
-<meta property="og:image:type" content="image/png">
+      content="https://cuentasecundaria0000.github.io/invitacion-monse/img/vista-previa.png">
 
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
 <meta property="og:url"
-      content="https://cuentasecundaria0000.github.io/mi-cumple-monse/">
+      content="https://cuentasecundaria0000.github.io/invitacion-monse/">
 
 <!-- ==========================================
      TWITTER / X
@@ -43,11 +38,13 @@
       content="Acompáñame a celebrar mi cumpleaños número 10.">
 
 <meta name="twitter:image"
-      content="https://cuentasecundaria0000.github.io/mi-cumple-monse/img/vista-previa.png">
-
-<!-- FUENTES -->
+      content="https://cuentasecundaria0000.github.io/invitacion-monse/img/vista-previa.jpg">
+    <!-- FUENTES -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Parisienne&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
-
+    
+    <!-- SWIPER CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
     <!-- ESTILOS PROPIOS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -125,7 +122,7 @@
                 </h1>
 
                 <p class="career">✨ ¡Celebro mis 10 Años! ✨</p>
-                <p class="hero-date">19 de septiembre de 2026</p>
+                <p class="hero-date">5 de septiembre de 2026</p>
 
                 <button class="music-button" id="musicButton" type="button">
                     <span id="musicIcon">♫</span>
@@ -157,10 +154,20 @@
                     con todas las personas que más quiero.”
                 </p>
 
-                <p class="highlight-text">
-                    ¡Tu presencia hará que mi cumpleaños sea inolvidable y súper divertido! ✨
-                </p>
+                <h3 class="script-heading">Lugar de la Fiesta</h3>
 
+                    <p class="event-date">Sábado 19 de septiembre de 2026</p>
+                    <p>3:00 p. m.</p>
+                    <p>Sala de Usos Múltiples<br>Poblado Tucta</p>
+
+                    <a
+                        class="primary-button"
+                        href="https://maps.google.com/?q=Sala+de+usos+multiples+poblado+tucta"
+                        target="_blank"
+                        rel="noopener">
+                        Ver ubicación 📍
+                    </a>
+<!-- 
                 <div class="guest-information">
                     <p class="welcome-small">Invitación para:</p>
 
@@ -168,7 +175,7 @@
                         Nuestro invitado especial
                     </h3>
 
-                   <!--  <p>
+                    <p>
                         Invitación válida para
                         <strong id="guestPasses">1</strong>
                         <span id="peopleWord">persona</span>.
@@ -219,14 +226,14 @@
     </div>
 </section>
 
-        <!-- FIESTA DE CUMPLEAÑOS -->
+        <!-- FIESTA DE CUMPLEAÑOS 
         <section class="section event-section">
             <div class="event-grid single-event">
                 <article class="event-card reveal">
 <span class="event-icon"><img src="img/img2.png" alt="Icono" class="event-icon-img"></span>
                     <h3 class="script-heading">Lugar de la Fiesta</h3>
 
-                    <p class="event-date">Sábado 19 de septiembre de 2026</p>
+                    <p class="event-date">Sábado 5 de septiembre de 2026</p>
                     <p>3:00 p. m.</p>
                     <p>Sala de Usos Múltiples<br>Poblado Tucta</p>
 
@@ -239,7 +246,7 @@
                     </a>
                 </article>
             </div>
-        </section>
+        </section> -->
 
         <!-- ITINERARIO
         <section class="section timeline-section">
@@ -281,21 +288,45 @@
             </div>
         </section>   -->
 
-        <!-- GALERÍA -->
+        <!-- GALERÍA 
        <section class="section gallery-section">
     <div class="section-heading reveal">
         <p class="section-label">✦ Recuerdos ✦</p>
         <h2>Mis mejores momentos</h2>
     </div>
 
-    <!-- Carrusel de fotos -->
-    <div class="carousel-xv reveal">
-        <div class="carousel-track"></div>
-        <div class="carousel-dots"></div>
+    <!- Carrusel Swiper ->
+    <div class="swiper gallery-swiper reveal">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="img/img1.png" alt="Fotografía de Jatziry 1">
+            </div>
+            <div class="swiper-slide">
+                <img src="img/img2.png" alt="Fotografía de Jatziry 2">
+            </div>
+            <div class="swiper-slide">
+                <img src="img/img3.png" alt="Fotografía de Jatziry 3">
+            </div>
+            <div class="swiper-slide">
+                <img src="img/img4.png" alt="Fotografía de Jatziry 4">
+            </div>
+            <div class="swiper-slide">
+                <img src="img/img5.png" alt="Fotografía de Jatziry 5">
+            </div>
+            <div class="swiper-slide">
+                <img src="img/img6.png" alt="Fotografía de Jatziry 6">
+            </div>
+            <div class="swiper-slide">
+                <img src="img/img7.png" alt="Fotografía de Jatziry 7">
+            </div>
+        </div>
+
+        <!- Puntos de navegación (opcional) ->
+        <div class="swiper-pagination"></div>
     </div>
 </section>
 
-        <!-- DESPEDIDA -->
+        <!- DESPEDIDA ->
         <footer class="footer">
     <div class="footer-flower">🖤 🎀</div>
 
@@ -309,8 +340,11 @@
 
         <img src="img/img4.png" alt="Kuromi" class="footer-side-img">
     </div>
+    -->
 </footer>
     </main>
+<!-- 1. Swiper JS primero -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
