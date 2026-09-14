@@ -103,6 +103,13 @@ if (envelopeWrapper) {
    MÚSICA
 ========================================================= */
 
+```javascript
+/* =========================================================
+   MÚSICA
+========================================================= */
+
+let musicWasPlaying = false;
+
 function updateMusicButton(isPlaying) {
     if (musicText) {
         musicText.textContent = isPlaying
@@ -115,28 +122,103 @@ function updateMusicButton(isPlaying) {
     }
 }
 
+/* =========================================================
+   REPRODUCIR MÚSICA
+========================================================= */
+
 function tryPlayMusic() {
     if (!music) return;
 
     music.volume = 0.55;
 
     music.play()
-        .then(() => updateMusicButton(true))
-        .catch(() => updateMusicButton(false));
+        .then(() => {
+            musicWasPlaying = true;
+            updateMusicButton(true);
+        })
+        .catch(() => {
+            musicWasPlaying = false;
+            updateMusicButton(false);
+        });
 }
+
+/* =========================================================
+   BOTÓN DE MÚSICA
+========================================================= */
 
 if (musicButton && music) {
     musicButton.addEventListener("click", () => {
+
         if (music.paused) {
+
             music.play()
-                .then(() => updateMusicButton(true))
-                .catch(() => updateMusicButton(false));
+                .then(() => {
+                    musicWasPlaying = true;
+                    updateMusicButton(true);
+                })
+                .catch(() => {
+                    updateMusicButton(false);
+                });
+
         } else {
+
             music.pause();
+
+            // El usuario la pausó manualmente
+            musicWasPlaying = false;
+
             updateMusicButton(false);
         }
     });
 }
+
+/* =========================================================
+   PAUSAR CUANDO SE SALE DE LA INVITACIÓN
+========================================================= */
+
+document.addEventListener("visibilitychange", () => {
+
+    if (!music) return;
+
+    if (document.hidden) {
+
+        // Guardamos si estaba sonando antes de salir
+        if (!music.paused) {
+            musicWasPlaying = true;
+            music.pause();
+        }
+
+    } else {
+
+        // Al regresar, solamente continúa si estaba reproduciéndose
+        if (musicWasPlaying && invitationOpened) {
+
+            music.play()
+                .then(() => {
+                    updateMusicButton(true);
+                })
+                .catch(() => {
+                    updateMusicButton(false);
+                });
+
+        }
+    }
+});
+
+/* =========================================================
+   CUANDO LA PÁGINA SE DESCARGA O SE ABANDONA
+========================================================= */
+
+window.addEventListener("pagehide", () => {
+
+    if (!music) return;
+
+    music.pause();
+    music.currentTime = music.currentTime;
+    musicWasPlaying = false;
+
+});
+```
 
 /* =========================================================
    CONTADOR
